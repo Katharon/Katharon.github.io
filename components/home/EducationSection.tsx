@@ -22,12 +22,12 @@ const educationItems = [
 
 export function EducationSection() {
   return (
-    <MotionSection className="border-y border-white/[0.06] bg-slate-900/25 py-14 sm:py-16 lg:py-20">
+    <MotionSection className="border-y border-white/[0.06] bg-slate-900/25 py-12 sm:py-16 lg:py-20">
       <Container>
         <SectionHeading eyebrow="Education" title="Computer science path." />
         <div className="mt-9 grid gap-4 md:grid-cols-2">
           {educationItems.map((item) => (
-            <Card key={item.degree}>
+            <Card key={item.degree} className="p-5 sm:p-6">
               <div className="flex items-start gap-4">
                 <div className="grid size-11 shrink-0 place-items-center rounded-lg border border-sky-300/20 bg-sky-300/10">
                   <GraduationCap aria-hidden="true" className="size-5 text-sky-300" />

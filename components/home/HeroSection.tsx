@@ -49,16 +49,16 @@ export function HeroSection({ cvHref }: HeroSectionProps) {
   return (
     <section
       id="top"
-      className="relative overflow-hidden pt-16 pb-14 sm:pt-24 sm:pb-16 lg:pt-28 lg:pb-24"
+      className="relative overflow-hidden pt-12 pb-12 sm:pt-20 sm:pb-16 lg:pt-28 lg:pb-24"
     >
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_15%_10%,rgba(56,189,248,0.18),transparent_32rem),radial-gradient(circle_at_90%_15%,rgba(59,130,246,0.12),transparent_28rem),linear-gradient(180deg,rgba(15,23,42,0)_0%,rgba(15,23,42,0.96)_88%)]" />
       <Container className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
         <div>
-          <Badge className="mb-6">Junior software engineer portfolio</Badge>
-          <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <Badge className="mb-5 sm:mb-6">Junior software engineer portfolio</Badge>
+          <h1 className="max-w-4xl text-4xl leading-tight font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
             {profile.name}
           </h1>
-          <p className="mt-6 max-w-3xl text-xl leading-9 text-slate-100 sm:text-2xl">
+          <p className="mt-5 max-w-3xl text-xl leading-8 text-slate-100 sm:mt-6 sm:text-2xl sm:leading-9">
             {profile.role}
           </p>
           <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
@@ -79,7 +79,7 @@ export function HeroSection({ cvHref }: HeroSectionProps) {
               external
               icon={Code2}
               ariaLabel="Open Lukas Stumpfel on GitHub"
-              className="w-full sm:w-auto"
+              className="min-w-32 flex-1 sm:flex-none"
             >
               GitHub
             </Button>
@@ -88,15 +88,24 @@ export function HeroSection({ cvHref }: HeroSectionProps) {
               external
               icon={ExternalLink}
               ariaLabel="Open Lukas Stumpfel on LinkedIn"
-              className="w-full sm:w-auto"
+              className="min-w-32 flex-1 sm:flex-none"
             >
               LinkedIn
             </Button>
-            <Button href={`mailto:${profile.email}`} icon={Mail} className="w-full sm:w-auto">
+            <Button
+              href={`mailto:${profile.email}`}
+              icon={Mail}
+              className="min-w-32 flex-1 sm:flex-none"
+            >
               Email
             </Button>
             {cvHref ? (
-              <Button href={cvHref} icon={Download} download className="w-full sm:w-auto">
+              <Button
+                href={cvHref}
+                icon={Download}
+                download
+                className="min-w-32 flex-1 sm:flex-none"
+              >
                 Download CV
               </Button>
             ) : null}
@@ -124,7 +133,7 @@ export function HeroSection({ cvHref }: HeroSectionProps) {
               current-profile.md
             </div>
           </div>
-          <div className="space-y-5 p-5 sm:p-6">
+          <div className="space-y-4 p-5 sm:space-y-5 sm:p-6">
             <div className="grid gap-3 sm:grid-cols-3">
               {[
                 { label: ".NET", icon: Code2 },

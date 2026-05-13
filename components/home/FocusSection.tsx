@@ -44,7 +44,7 @@ const focusAreas: Array<{
 
 export function FocusSection() {
   return (
-    <MotionSection className="py-14 sm:py-16 lg:py-20">
+    <MotionSection className="py-12 sm:py-16 lg:py-20">
       <Container>
         <SectionHeading
           eyebrow="Focus Areas"
@@ -55,8 +55,8 @@ export function FocusSection() {
           {focusAreas.map((area) => (
             <Card key={area.title} className="p-5">
               <area.icon aria-hidden="true" className="size-6 text-sky-300" />
-              <h3 className="mt-5 text-base font-semibold text-white">{area.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-400">{area.description}</p>
+              <h3 className="mt-4 text-base font-semibold text-white sm:mt-5">{area.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-slate-300">{area.description}</p>
             </Card>
           ))}
         </div>

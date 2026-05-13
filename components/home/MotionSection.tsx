@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 type MotionSectionProps = {
   children: React.ReactNode;
@@ -10,15 +10,17 @@ type MotionSectionProps = {
 };
 
 export function MotionSection({ children, className, id, ariaLabelledby }: MotionSectionProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.section
       id={id}
       aria-labelledby={ariaLabelledby}
       className={className}
-      initial={{ opacity: 0, y: 18 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
+      whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.45, ease: "easeOut" }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
     >
       {children}
     </motion.section>

@@ -14,7 +14,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
       <Container className="flex min-h-16 items-center justify-between gap-4">
         <a
-          className="group inline-flex items-center gap-3 text-sm font-semibold text-white"
+          className="group inline-flex min-h-11 items-center gap-3 text-sm font-semibold text-white"
           href="#top"
           aria-label={`${profile.name} home`}
         >
@@ -27,7 +27,7 @@ export function Header() {
           {navigation.map((item) => (
             <a
               key={item.href}
-              className="rounded-md px-3 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/[0.06] hover:text-white"
+              className="inline-flex min-h-11 items-center rounded-md px-3 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/[0.06] hover:text-white"
               href={item.href}
             >
               {item.label}
@@ -35,6 +35,24 @@ export function Header() {
           ))}
         </nav>
       </Container>
+      <div className="border-t border-white/[0.06] md:hidden">
+        <Container>
+          <nav
+            className="-mx-2 flex gap-1 overflow-x-auto py-2"
+            aria-label="Mobile primary navigation"
+          >
+            {navigation.map((item) => (
+              <a
+                key={item.href}
+                className="inline-flex min-h-11 shrink-0 items-center rounded-md px-3 text-sm font-medium text-slate-300 transition hover:bg-white/[0.06] hover:text-white"
+                href={item.href}
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        </Container>
+      </div>
     </header>
   );
 }

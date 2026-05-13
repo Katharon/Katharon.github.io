@@ -19,17 +19,17 @@ export function AboutSection() {
   return (
     <MotionSection
       id="about"
-      className="border-y border-white/[0.06] bg-slate-950/70 py-14 sm:py-16 lg:py-20"
+      className="border-y border-white/[0.06] bg-slate-950/70 py-12 sm:py-16 lg:py-20"
       ariaLabelledby="about-title"
     >
       <Container>
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10">
           <SectionHeading
             eyebrow="About"
             title="Practical software work, with an infrastructure mindset."
             titleId="about-title"
           />
-          <Card>
+          <Card className="p-5 sm:p-6">
             <div className="space-y-5 text-base leading-8 text-slate-300">
               {paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>

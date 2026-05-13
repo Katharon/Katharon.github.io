@@ -13,7 +13,7 @@ export function SectionHeading({ eyebrow, title, description, titleId }: Section
       </p>
       <h2
         id={titleId}
-        className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl"
+        className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl lg:text-4xl"
       >
         {title}
       </h2>

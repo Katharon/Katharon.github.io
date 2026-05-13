@@ -20,7 +20,7 @@ export function ProjectsSection() {
   return (
     <MotionSection
       id="projects"
-      className="border-y border-white/[0.06] bg-slate-900/30 py-14 sm:py-16 lg:py-20"
+      className="border-y border-white/[0.06] bg-slate-900/30 py-12 sm:py-16 lg:py-20"
       ariaLabelledby="projects-title"
     >
       <Container>
@@ -50,7 +50,7 @@ export function ProjectsSection() {
                     </div>
                     <a
                       aria-label={`Open ${project.name} on GitHub`}
-                      className="rounded-md border border-white/10 p-2 text-slate-300 transition hover:border-sky-300/40 hover:bg-sky-400/10 hover:text-white"
+                      className="grid min-h-11 min-w-11 shrink-0 place-items-center rounded-md border border-white/10 text-slate-300 transition hover:border-sky-300/40 hover:bg-sky-400/10 hover:text-white"
                       href={project.href}
                       target="_blank"
                       rel="noreferrer"

@@ -10,6 +10,7 @@ export function Footer() {
         </p>
         <div className="flex gap-4">
           <a
+            aria-label="Open Lukas Stumpfel on GitHub"
             className="transition hover:text-white"
             href={profile.github}
             rel="noreferrer"
@@ -18,6 +19,7 @@ export function Footer() {
             GitHub
           </a>
           <a
+            aria-label="Open Lukas Stumpfel on LinkedIn"
             className="transition hover:text-white"
             href={profile.linkedin}
             rel="noreferrer"
