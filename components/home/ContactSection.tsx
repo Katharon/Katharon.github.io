@@ -47,7 +47,7 @@ export function ContactSection() {
             <div className="border-b border-white/10 p-6 sm:p-8 lg:border-r lg:border-b-0">
               <SectionHeading
                 eyebrow="Contact"
-                title="Open to junior software engineering conversations."
+                title="Open to junior software engineering opportunities."
                 description="Best reached through email, GitHub or LinkedIn. Based in Lower Austria, Austria."
                 titleId="contact-title"
               />

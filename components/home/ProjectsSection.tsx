@@ -9,11 +9,10 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { getProjectPreview } from "@/lib/project-previews";
 
 const demonstrates: Record<string, string> = {
-  NodeControl: "Demonstrates infrastructure workflow modeling and worker-based execution.",
-  WeatherMesh: "Demonstrates distributed data collection, APIs and visualization concepts.",
-  CodeForge:
-    "Demonstrates layered desktop architecture and extensibility through plugin contracts.",
-  ChatTool: "Demonstrates authentication, persistence and encrypted messaging foundations.",
+  NodeControl: "Shows infrastructure workflow modeling and worker-based execution concepts.",
+  WeatherMesh: "Shows distributed data collection, API design and measurement visualization.",
+  CodeForge: "Shows layered desktop architecture and extensibility through plugin contracts.",
+  ChatTool: "Study project exploring authentication, persistence and encrypted messaging basics.",
 };
 
 export function ProjectsSection() {
@@ -27,7 +26,7 @@ export function ProjectsSection() {
         <SectionHeading
           eyebrow="Selected Projects"
           title="Portfolio and study projects with a systems angle."
-          description="Four projects that show backend, desktop, distributed-systems and security-oriented work without claiming production readiness."
+          description="Selected work across backend, desktop, distributed-systems and security-oriented topics, framed as prototypes and study projects."
           titleId="projects-title"
         />
         <div className="mt-9 grid gap-5 md:grid-cols-2">

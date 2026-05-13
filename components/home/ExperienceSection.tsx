@@ -10,21 +10,21 @@ const experienceItems = [
     organization: "FOTEC",
     period: "09/2024-03/2025",
     description:
-      "Part-time development of enterprise applications using .NET MAUI, ASP.NET Core, Blazor, EF Core, REST APIs, Git and Docker.",
+      "Part-time development of business applications using .NET MAUI, ASP.NET Core, Blazor, EF Core, REST APIs, Git and Docker.",
   },
   {
     title: "Software Development Intern",
     organization: "FOTEC",
     period: "07/2024",
     description:
-      "Python/Raspberry Pi prototype for camera-based quality inspection of rotating product packaging; additional GoPro API integration in an assembly-line context.",
+      "Built a Python/Raspberry Pi prototype for camera-based quality inspection of rotating product packaging, plus GoPro API integration in an assembly-line context.",
   },
   {
     title: "Gastronomy Leadership Background",
     organization: "Professional kitchens",
     period: "2014-2023",
     description:
-      "Several years of professional kitchen experience, including sous-chef and kitchen-lead responsibilities such as ordering, costing, HACCP, duty planning and operational coordination.",
+      "Professional kitchen experience with sous-chef and kitchen-lead responsibilities, including ordering, costing, HACCP, duty planning and operational coordination.",
   },
 ];
 
@@ -38,7 +38,7 @@ export function ExperienceSection() {
       <Container>
         <SectionHeading
           eyebrow="Experience"
-          title="Professional work shaped by delivery and operations."
+          title="Professional work shaped by systems and operations."
           titleId="experience-title"
         />
         <div className="mt-9 grid gap-4">

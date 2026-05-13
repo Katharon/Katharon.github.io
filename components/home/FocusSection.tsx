@@ -12,32 +12,31 @@ const focusAreas: Array<{
 }> = [
   {
     title: "C#/.NET Engineering",
-    description:
-      "Full-stack application work with ASP.NET Core, Blazor, MAUI, EF Core and REST APIs.",
+    description: "Application development with ASP.NET Core, Blazor, MAUI, EF Core and REST APIs.",
     icon: Code2,
   },
   {
     title: "Linux & Containers",
     description:
-      "Growing focus on Linux environments, Docker workflows and Kubernetes-based deployment models.",
+      "Hands-on learning around Linux environments, Docker workflows and Kubernetes deployment models.",
     icon: Server,
   },
   {
     title: "Distributed Systems",
     description:
-      "Interest in recovery, reproducibility, service boundaries and multi-node system behavior.",
+      "Focus on service boundaries, recovery, reproducibility and multi-node system behavior.",
     icon: Network,
   },
   {
     title: "Software Architecture",
     description:
-      "Layered designs, maintainable boundaries and pragmatic structure for evolving applications.",
+      "Layered designs, maintainable boundaries and pragmatic structure for applications that evolve.",
     icon: Layers,
   },
   {
     title: "Security Foundations",
     description:
-      "Study-level security work around authentication, encrypted messaging and secure defaults.",
+      "Study-level work around authentication, encrypted messaging and secure implementation habits.",
     icon: ShieldCheck,
   },
 ];
@@ -49,7 +48,7 @@ export function FocusSection() {
         <SectionHeading
           eyebrow="Focus Areas"
           title="Where I am building depth."
-          description="A focused mix of application engineering, infrastructure fundamentals and system design."
+          description="A focused mix of .NET application engineering, infrastructure fundamentals and system design."
         />
         <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {focusAreas.map((area) => (

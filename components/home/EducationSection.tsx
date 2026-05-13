@@ -10,13 +10,13 @@ const educationItems = [
     institution: "FH Wiener Neustadt",
     period: "Expected 07/2026",
     description:
-      "Focus: programming, software architecture, distributed systems, databases, UX, software testing, IT security and IT operations.",
+      "Coursework and project work across programming, software architecture, distributed systems, databases, UX, software testing, IT security and IT operations.",
   },
   {
     degree: "M.Sc. Computer Science - Software and Security Engineering",
     institution: "FH Wiener Neustadt",
     period: "Starting 09/2026",
-    description: "Admitted.",
+    description: "Admitted, with planned focus on software and security engineering.",
   },
 ];
 
@@ -24,7 +24,7 @@ export function EducationSection() {
   return (
     <MotionSection className="border-y border-white/[0.06] bg-slate-900/25 py-12 sm:py-16 lg:py-20">
       <Container>
-        <SectionHeading eyebrow="Education" title="Computer science path." />
+        <SectionHeading eyebrow="Education" title="Computer science foundation." />
         <div className="mt-9 grid gap-4 md:grid-cols-2">
           {educationItems.map((item) => (
             <Card key={item.degree} className="p-5 sm:p-6">

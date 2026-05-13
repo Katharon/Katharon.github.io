@@ -22,9 +22,9 @@ type HeroSectionProps = {
 };
 
 const signalItems = [
-  "C#/.NET full-stack development",
-  "Linux, Docker and Kubernetes focus",
-  "Distributed systems and platform concepts",
+  "C#/.NET application development",
+  "Linux, Docker and Kubernetes fundamentals",
+  "Distributed systems and architecture thinking",
 ];
 
 const personalDetails = [
@@ -40,7 +40,7 @@ const personalDetails = [
   },
   {
     label: "Background",
-    value: "Kitchen lead to software systems",
+    value: "Operations background from kitchen leadership",
     icon: BriefcaseBusiness,
   },
 ];
@@ -62,8 +62,8 @@ export function HeroSection({ cvHref }: HeroSectionProps) {
             {profile.role}
           </p>
           <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-            I build practical software systems with a strong interest in platform engineering,
-            backend architecture and infrastructure automation.
+            I build practical software projects and study how reliable backend systems,
+            infrastructure automation and maintainable architecture fit together.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button
@@ -152,7 +152,7 @@ export function HeroSection({ cvHref }: HeroSectionProps) {
             <div className="rounded-lg border border-white/10 bg-slate-950/70 p-5">
               <div className="mb-4 flex items-center gap-2 text-sm font-semibold text-slate-200">
                 <Network aria-hidden="true" className="size-4 text-sky-300" />
-                Current direction
+                Current focus
               </div>
               <ul className="space-y-3">
                 {signalItems.map((item) => (
@@ -168,8 +168,8 @@ export function HeroSection({ cvHref }: HeroSectionProps) {
                 Thesis path
               </p>
               <p className="mt-3 text-sm leading-6 text-slate-300">
-                Migrating a Docker Compose based multi-server setup toward Kubernetes with an
-                emphasis on recovery, reproducibility and maintainability.
+                Exploring how a Docker Compose based multi-server setup can be migrated toward
+                Kubernetes with emphasis on recovery, reproducibility and maintainability.
               </p>
             </div>
           </div>

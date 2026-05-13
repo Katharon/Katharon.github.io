@@ -4,15 +4,15 @@ import { MotionSection } from "@/components/home/MotionSection";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const paragraphs = [
-  "I am a computer science student at FH Wiener Neustadt with practical experience in C#/.NET full-stack development. During my work at FOTEC, I built enterprise applications with .NET MAUI, ASP.NET Core, Blazor, EF Core and REST APIs.",
-  "My current focus is shifting toward Linux, Docker, Kubernetes, distributed systems and platform engineering. My bachelor thesis explored the migration of a Docker Compose based multi-server architecture into a Kubernetes environment with a focus on recovery, reproducibility and maintainability.",
-  "Before studying computer science, I worked for several years as a chef and kitchen lead. This background shaped how I approach responsibility, structure, operational thinking and practical problem solving.",
+  "I am a computer science student at FH Wiener Neustadt with practical C#/.NET full-stack experience. At FOTEC, I worked on business applications using .NET MAUI, ASP.NET Core, Blazor, EF Core and REST APIs.",
+  "My current focus is moving deeper into Linux, Docker, Kubernetes, distributed systems and platform engineering. My bachelor thesis examines the migration of a Docker Compose based multi-server architecture into Kubernetes, with emphasis on recovery, reproducibility and maintainability.",
+  "Before studying computer science, I worked for several years as a chef and kitchen lead. That background still shapes how I approach responsibility, structured work, operational thinking and practical problem solving.",
 ];
 
 const highlights = [
-  "Practical .NET application development",
-  "Infrastructure-oriented engineering focus",
-  "Operational leadership background",
+  "Hands-on .NET application work",
+  "Linux and Kubernetes direction",
+  "Practical operational background",
 ];
 
 export function AboutSection() {
@@ -26,7 +26,7 @@ export function AboutSection() {
         <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10">
           <SectionHeading
             eyebrow="About"
-            title="Practical software work, with an infrastructure mindset."
+            title="Software engineering with a practical systems mindset."
             titleId="about-title"
           />
           <Card className="p-5 sm:p-6">

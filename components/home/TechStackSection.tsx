@@ -11,8 +11,8 @@ export function TechStackSection() {
       <Container>
         <SectionHeading
           eyebrow="Tech Stack"
-          title="Tools and concepts I work with."
-          description="Grouped from the project data so the portfolio stays easy to keep current."
+          title="Tools and concepts I use in projects."
+          description="A practical stack centered on .NET development, application UI, infrastructure basics and architecture patterns."
           titleId="stack-title"
         />
         <div className="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
