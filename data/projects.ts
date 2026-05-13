@@ -20,7 +20,7 @@ export const projects = [
     label: "Software Architecture",
     description:
       "Extensible WPF/C# code editor prototype focused on layered architecture, syntax highlighting and plugin-contract based extensibility.",
-    tech: ["C#", ".NET 9", "WPF", "XAML", "StyleCop", "Plugin Contracts"],
+    tech: ["C#", ".NET 10", "WPF", "XAML", "StyleCop", "Plugin Contracts"],
     href: "https://github.com/Katharon/CodeForge",
   },
   {
