@@ -12,6 +12,19 @@ export const metadata: Metadata = {
   applicationName: "Lukas Stumpfel Portfolio",
   authors: [{ name: "Lukas Stumpfel" }],
   creator: "Lukas Stumpfel",
+  alternates: {
+    canonical: "/",
+  },
+  keywords: [
+    "Lukas Stumpfel",
+    "C#",
+    ".NET",
+    "Linux",
+    "Kubernetes",
+    "Distributed Systems",
+    "Software Architecture",
+    "Platform Engineering",
+  ],
   openGraph: {
     title,
     description,
@@ -19,6 +32,10 @@ export const metadata: Metadata = {
     siteName: "Lukas Stumpfel Portfolio",
     locale: "en_US",
     type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
   twitter: {
     card: "summary_large_image",
