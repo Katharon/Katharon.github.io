@@ -44,14 +44,14 @@ const focusAreas: Array<{
 
 export function FocusSection() {
   return (
-    <MotionSection className="py-16 sm:py-20">
+    <MotionSection className="py-14 sm:py-16 lg:py-20">
       <Container>
         <SectionHeading
           eyebrow="Focus Areas"
           title="Where I am building depth."
           description="A focused mix of application engineering, infrastructure fundamentals and system design."
         />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {focusAreas.map((area) => (
             <Card key={area.title} className="p-5">
               <area.icon aria-hidden="true" className="size-6 text-sky-300" />

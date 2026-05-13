@@ -37,7 +37,11 @@ const contactLinks = [
 
 export function ContactSection() {
   return (
-    <MotionSection id="contact" className="py-16 sm:py-20" ariaLabelledby="contact-title">
+    <MotionSection
+      id="contact"
+      className="border-t border-white/[0.06] bg-slate-950/80 py-14 sm:py-16 lg:py-20"
+      ariaLabelledby="contact-title"
+    >
       <Container>
         <Card className="overflow-hidden p-0">
           <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">

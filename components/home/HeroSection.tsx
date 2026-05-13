@@ -1,9 +1,12 @@
 import {
   ArrowRight,
+  BriefcaseBusiness,
   Code2,
   Download,
   ExternalLink,
+  GraduationCap,
   Mail,
+  MapPin,
   Network,
   Server,
   Terminal,
@@ -24,10 +27,31 @@ const signalItems = [
   "Distributed systems and platform concepts",
 ];
 
+const personalDetails = [
+  {
+    label: "Based in",
+    value: profile.location,
+    icon: MapPin,
+  },
+  {
+    label: "Studying at",
+    value: "FH Wiener Neustadt",
+    icon: GraduationCap,
+  },
+  {
+    label: "Background",
+    value: "Kitchen lead to software systems",
+    icon: BriefcaseBusiness,
+  },
+];
+
 export function HeroSection({ cvHref }: HeroSectionProps) {
   return (
-    <section id="top" className="relative overflow-hidden py-20 sm:py-24 lg:py-28">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.18),transparent_34rem),linear-gradient(180deg,rgba(15,23,42,0)_0%,rgba(15,23,42,0.92)_82%)]" />
+    <section
+      id="top"
+      className="relative overflow-hidden pt-16 pb-14 sm:pt-24 sm:pb-16 lg:pt-28 lg:pb-24"
+    >
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_15%_10%,rgba(56,189,248,0.18),transparent_32rem),radial-gradient(circle_at_90%_15%,rgba(59,130,246,0.12),transparent_28rem),linear-gradient(180deg,rgba(15,23,42,0)_0%,rgba(15,23,42,0.96)_88%)]" />
       <Container className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
         <div>
           <Badge className="mb-6">Junior software engineer portfolio</Badge>
@@ -42,7 +66,12 @@ export function HeroSection({ cvHref }: HeroSectionProps) {
             backend architecture and infrastructure automation.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button href="#projects" variant="primary" icon={ArrowRight}>
+            <Button
+              href="#projects"
+              variant="primary"
+              icon={ArrowRight}
+              className="w-full sm:w-auto"
+            >
               View Projects
             </Button>
             <Button
@@ -50,6 +79,7 @@ export function HeroSection({ cvHref }: HeroSectionProps) {
               external
               icon={Code2}
               ariaLabel="Open Lukas Stumpfel on GitHub"
+              className="w-full sm:w-auto"
             >
               GitHub
             </Button>
@@ -58,25 +88,40 @@ export function HeroSection({ cvHref }: HeroSectionProps) {
               external
               icon={ExternalLink}
               ariaLabel="Open Lukas Stumpfel on LinkedIn"
+              className="w-full sm:w-auto"
             >
               LinkedIn
             </Button>
-            <Button href={`mailto:${profile.email}`} icon={Mail}>
+            <Button href={`mailto:${profile.email}`} icon={Mail} className="w-full sm:w-auto">
               Email
             </Button>
             {cvHref ? (
-              <Button href={cvHref} icon={Download} download>
+              <Button href={cvHref} icon={Download} download className="w-full sm:w-auto">
                 Download CV
               </Button>
             ) : null}
           </div>
+          <dl className="mt-8 grid gap-3 sm:grid-cols-3">
+            {personalDetails.map((detail) => (
+              <div
+                key={detail.label}
+                className="rounded-lg border border-white/10 bg-white/[0.035] p-4"
+              >
+                <div className="flex items-center gap-2 text-xs font-medium text-sky-200">
+                  <detail.icon aria-hidden="true" className="size-4" />
+                  <dt>{detail.label}</dt>
+                </div>
+                <dd className="mt-2 text-sm leading-6 text-slate-200">{detail.value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
 
-        <Card className="relative overflow-hidden p-0">
+        <Card className="relative overflow-hidden p-0 shadow-2xl shadow-sky-950/20">
           <div className="border-b border-white/10 bg-slate-900/80 px-5 py-4">
             <div className="flex items-center gap-2 text-sm font-medium text-slate-200">
               <Terminal aria-hidden="true" className="size-4 text-sky-300" />
-              platform-focus.ts
+              current-profile.md
             </div>
           </div>
           <div className="space-y-5 p-5 sm:p-6">
@@ -108,6 +153,15 @@ export function HeroSection({ cvHref }: HeroSectionProps) {
                   </li>
                 ))}
               </ul>
+            </div>
+            <div className="rounded-lg border border-sky-300/15 bg-sky-300/[0.07] p-5">
+              <p className="font-mono text-xs font-semibold tracking-[0.2em] text-sky-200 uppercase">
+                Thesis path
+              </p>
+              <p className="mt-3 text-sm leading-6 text-slate-300">
+                Migrating a Docker Compose based multi-server setup toward Kubernetes with an
+                emphasis on recovery, reproducibility and maintainability.
+              </p>
             </div>
           </div>
         </Card>

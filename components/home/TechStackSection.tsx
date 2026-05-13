@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function TechStackSection() {
   return (
-    <MotionSection id="stack" className="py-16 sm:py-20" ariaLabelledby="stack-title">
+    <MotionSection id="stack" className="py-14 sm:py-16 lg:py-20" ariaLabelledby="stack-title">
       <Container>
         <SectionHeading
           eyebrow="Tech Stack"
@@ -15,7 +15,7 @@ export function TechStackSection() {
           description="Grouped from the project data so the portfolio stays easy to keep current."
           titleId="stack-title"
         />
-        <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {skillGroups.map((group) => (
             <Card key={group.title}>
               <h3 className="text-lg font-semibold text-white">{group.title}</h3>

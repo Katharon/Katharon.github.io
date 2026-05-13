@@ -1,21 +1,30 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const title = "Lukas Stumpfel | C#/.NET, Linux & Kubernetes";
+const description =
+  "Computer science student focused on C#/.NET, Linux, Kubernetes, distributed systems and software architecture.";
 
 export const metadata: Metadata = {
-  title: "Lukas Stumpfel | C#/.NET, Linux & Kubernetes",
-  description:
-    "Computer science student focused on C#/.NET, Linux, Kubernetes, distributed systems and software architecture.",
+  metadataBase: new URL("https://katharon.github.io"),
+  title,
+  description,
+  applicationName: "Lukas Stumpfel Portfolio",
+  authors: [{ name: "Lukas Stumpfel" }],
+  creator: "Lukas Stumpfel",
+  openGraph: {
+    title,
+    description,
+    url: "https://katharon.github.io",
+    siteName: "Lukas Stumpfel Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 export default function RootLayout({
@@ -24,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="en" className="h-full scroll-smooth antialiased">
       <body className="flex min-h-full flex-col bg-slate-950 text-slate-100">{children}</body>
     </html>
   );

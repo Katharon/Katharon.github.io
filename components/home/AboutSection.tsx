@@ -17,7 +17,11 @@ const highlights = [
 
 export function AboutSection() {
   return (
-    <MotionSection id="about" className="py-16 sm:py-20" ariaLabelledby="about-title">
+    <MotionSection
+      id="about"
+      className="border-y border-white/[0.06] bg-slate-950/70 py-14 sm:py-16 lg:py-20"
+      ariaLabelledby="about-title"
+    >
       <Container>
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <SectionHeading

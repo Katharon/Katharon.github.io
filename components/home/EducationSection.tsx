@@ -22,10 +22,10 @@ const educationItems = [
 
 export function EducationSection() {
   return (
-    <MotionSection className="py-16 sm:py-20">
+    <MotionSection className="border-y border-white/[0.06] bg-slate-900/25 py-14 sm:py-16 lg:py-20">
       <Container>
         <SectionHeading eyebrow="Education" title="Computer science path." />
-        <div className="mt-10 grid gap-4 md:grid-cols-2">
+        <div className="mt-9 grid gap-4 md:grid-cols-2">
           {educationItems.map((item) => (
             <Card key={item.degree}>
               <div className="flex items-start gap-4">

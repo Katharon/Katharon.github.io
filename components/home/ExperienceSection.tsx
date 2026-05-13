@@ -30,14 +30,18 @@ const experienceItems = [
 
 export function ExperienceSection() {
   return (
-    <MotionSection id="experience" className="py-16 sm:py-20" ariaLabelledby="experience-title">
+    <MotionSection
+      id="experience"
+      className="py-14 sm:py-16 lg:py-20"
+      ariaLabelledby="experience-title"
+    >
       <Container>
         <SectionHeading
           eyebrow="Experience"
           title="Professional work shaped by delivery and operations."
           titleId="experience-title"
         />
-        <div className="mt-10 grid gap-4">
+        <div className="mt-9 grid gap-4">
           {experienceItems.map((item) => (
             <Card key={`${item.title}-${item.period}`} className="p-5 sm:p-6">
               <div className="grid gap-5 sm:grid-cols-[auto_1fr_auto] sm:items-start">
