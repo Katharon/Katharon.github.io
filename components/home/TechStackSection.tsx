@@ -1,18 +1,27 @@
-import { skillGroups } from "@/data/skills";
+import { getLocalizedSkillGroups } from "@/data/skills";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/layout/Container";
 import { MotionSection } from "@/components/home/MotionSection";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { portfolioContent } from "@/data/content";
+import type { Locale } from "@/data/i18n";
 
-export function TechStackSection() {
+type TechStackSectionProps = {
+  locale: Locale;
+};
+
+export function TechStackSection({ locale }: TechStackSectionProps) {
+  const { techStack } = portfolioContent[locale];
+  const skillGroups = getLocalizedSkillGroups(locale);
+
   return (
     <MotionSection id="stack" className="py-12 sm:py-16 lg:py-20" ariaLabelledby="stack-title">
       <Container>
         <SectionHeading
-          eyebrow="Tech Stack"
-          title="Tools and concepts I use in projects."
-          description="A practical stack centered on .NET development, application UI, infrastructure basics and architecture patterns."
+          eyebrow={techStack.eyebrow}
+          title={techStack.title}
+          description={techStack.description}
           titleId="stack-title"
         />
         <div className="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-4">

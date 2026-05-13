@@ -1,21 +1,23 @@
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
-import { projects } from "@/data/projects";
+import { getLocalizedProjects } from "@/data/projects";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/layout/Container";
 import { MotionSection } from "@/components/home/MotionSection";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { portfolioContent } from "@/data/content";
+import type { Locale } from "@/data/i18n";
 import { getProjectPreview } from "@/lib/project-previews";
 
-const demonstrates: Record<string, string> = {
-  NodeControl: "Shows infrastructure workflow modeling and worker-based execution concepts.",
-  WeatherMesh: "Shows distributed data collection, API design and measurement visualization.",
-  CodeForge: "Shows layered desktop architecture and extensibility through plugin contracts.",
-  ChatTool: "Study project exploring authentication, persistence and encrypted messaging basics.",
+type ProjectsSectionProps = {
+  locale: Locale;
 };
 
-export function ProjectsSection() {
+export function ProjectsSection({ locale }: ProjectsSectionProps) {
+  const { aria, projects: content } = portfolioContent[locale];
+  const localizedProjects = getLocalizedProjects(locale);
+
   return (
     <MotionSection
       id="projects"
@@ -24,21 +26,25 @@ export function ProjectsSection() {
     >
       <Container>
         <SectionHeading
-          eyebrow="Selected Projects"
-          title="Portfolio and study projects with a systems angle."
-          description="Selected work across backend, desktop, distributed-systems and security-oriented topics, framed as prototypes and study projects."
+          eyebrow={content.eyebrow}
+          title={content.title}
+          description={content.description}
           titleId="projects-title"
         />
         <div className="mt-9 grid gap-5 md:grid-cols-2">
-          {projects.map((project) => {
-            const preview = getProjectPreview(project.name, project.label);
+          {localizedProjects.map((project) => {
+            const preview = getProjectPreview(project.name, project.label, locale);
 
             return (
               <Card
                 key={project.name}
                 className="group flex h-full min-h-full flex-col overflow-hidden p-0"
               >
-                <ProjectPreviewFrame projectName={project.name} preview={preview} />
+                <ProjectPreviewFrame
+                  projectName={project.name}
+                  preview={preview}
+                  fallbackLabel={content.fallbackPreviewLabel}
+                />
                 <div className="flex flex-1 flex-col p-5 sm:p-6">
                   <div className="flex items-start justify-between gap-4">
                     <div>
@@ -48,7 +54,7 @@ export function ProjectsSection() {
                       </h3>
                     </div>
                     <a
-                      aria-label={`Open ${project.name} on GitHub`}
+                      aria-label={aria.openProject.replace("{project}", project.name)}
                       className="grid min-h-11 min-w-11 shrink-0 place-items-center rounded-md border border-white/10 text-slate-300 transition hover:border-sky-300/40 hover:bg-sky-400/10 hover:text-white"
                       href={project.href}
                       target="_blank"
@@ -59,7 +65,7 @@ export function ProjectsSection() {
                   </div>
                   <p className="mt-5 text-base leading-8 text-slate-300">{project.description}</p>
                   <p className="mt-4 text-sm leading-6 text-sky-100/90">
-                    {demonstrates[project.name]}
+                    {project.demonstrates}
                   </p>
                   <div className="mt-auto flex flex-wrap gap-2 pt-6">
                     {project.tech.map((tech) => (
@@ -81,9 +87,11 @@ export function ProjectsSection() {
 function ProjectPreviewFrame({
   projectName,
   preview,
+  fallbackLabel,
 }: {
   projectName: string;
   preview: ReturnType<typeof getProjectPreview>;
+  fallbackLabel: string;
 }) {
   return (
     <div className="relative aspect-[16/9] overflow-hidden border-b border-white/10 bg-slate-950">
@@ -99,7 +107,7 @@ function ProjectPreviewFrame({
         <div className="flex h-full items-center justify-center bg-[radial-gradient(circle_at_30%_20%,rgba(56,189,248,0.16),transparent_14rem),linear-gradient(135deg,rgba(15,23,42,0.96),rgba(2,6,23,1))] p-6">
           <div className="w-full rounded-lg border border-white/10 bg-slate-950/70 p-4">
             <p className="font-mono text-xs font-semibold tracking-[0.2em] text-sky-200 uppercase">
-              Project preview
+              {fallbackLabel}
             </p>
             <p className="mt-3 text-lg font-semibold text-white">{projectName}</p>
           </div>

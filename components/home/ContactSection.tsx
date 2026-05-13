@@ -1,40 +1,56 @@
 import { Code2, ExternalLink, Mail, MapPin } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { profile } from "@/data/profile";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/layout/Container";
 import { MotionSection } from "@/components/home/MotionSection";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { portfolioContent, type PortfolioContent } from "@/data/content";
+import type { Locale } from "@/data/i18n";
 
-const contactLinks = [
-  {
-    label: "Email",
-    value: profile.email,
-    href: `mailto:${profile.email}`,
-    icon: Mail,
-  },
-  {
-    label: "GitHub",
-    value: "github.com/Katharon",
-    href: profile.github,
-    icon: Code2,
-    external: true,
-  },
-  {
-    label: "LinkedIn",
-    value: "Lukas Stumpfel",
-    href: profile.linkedin,
-    icon: ExternalLink,
-    external: true,
-  },
-  {
-    label: "Location",
-    value: profile.location,
-    icon: MapPin,
-  },
-];
+type ContactSectionProps = {
+  locale: Locale;
+};
 
-export function ContactSection() {
+type ContactLink = {
+  label: string;
+  value: string;
+  href?: string;
+  icon: LucideIcon;
+  external?: boolean;
+};
+
+export function ContactSection({ locale }: ContactSectionProps) {
+  const { aria, contact } = portfolioContent[locale];
+  const contactLinks: ContactLink[] = [
+    {
+      label: contact.links.email,
+      value: profile.email,
+      href: `mailto:${profile.email}`,
+      icon: Mail,
+    },
+    {
+      label: contact.links.github,
+      value: "github.com/Katharon",
+      href: profile.github,
+      icon: Code2,
+      external: true,
+    },
+    {
+      label: contact.links.linkedin,
+      value: "Lukas Stumpfel",
+      href: profile.linkedin,
+      icon: ExternalLink,
+      external: true,
+    },
+    {
+      label: contact.links.location,
+      value: profile.location[locale],
+      icon: MapPin,
+    },
+  ];
+
   return (
     <MotionSection
       id="contact"
@@ -46,9 +62,9 @@ export function ContactSection() {
           <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="border-b border-white/10 p-6 sm:p-8 lg:border-r lg:border-b-0">
               <SectionHeading
-                eyebrow="Contact"
-                title="Open to junior software engineering opportunities."
-                description="Best reached through email, GitHub or LinkedIn. Based in Lower Austria, Austria."
+                eyebrow={contact.eyebrow}
+                title={contact.title}
+                description={contact.description}
                 titleId="contact-title"
               />
               <div className="mt-8">
@@ -58,13 +74,13 @@ export function ContactSection() {
                   icon={Mail}
                   className="w-full sm:w-auto"
                 >
-                  Email Lukas
+                  {contact.button}
                 </Button>
               </div>
             </div>
             <div className="grid gap-0 divide-y divide-white/10">
               {contactLinks.map((item) => (
-                <ContactItem key={item.label} item={item} />
+                <ContactItem key={item.label} item={item} aria={aria} />
               ))}
             </div>
           </div>
@@ -74,9 +90,7 @@ export function ContactSection() {
   );
 }
 
-type ContactLink = (typeof contactLinks)[number];
-
-function ContactItem({ item }: { item: ContactLink }) {
+function ContactItem({ item, aria }: { item: ContactLink; aria: PortfolioContent["aria"] }) {
   const content = (
     <>
       <span className="flex items-center gap-4">
@@ -108,7 +122,11 @@ function ContactItem({ item }: { item: ContactLink }) {
       target={item.external ? "_blank" : undefined}
       rel={item.external ? "noreferrer" : undefined}
       aria-label={
-        item.external ? `Open Lukas Stumpfel on ${item.label}` : `${item.label}: ${item.value}`
+        item.external
+          ? item.label === "GitHub"
+            ? aria.openGithub
+            : aria.openLinkedin
+          : aria.contactValue.replace("{label}", item.label).replace("{value}", item.value)
       }
     >
       {content}

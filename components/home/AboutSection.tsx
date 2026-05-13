@@ -2,20 +2,16 @@ import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/layout/Container";
 import { MotionSection } from "@/components/home/MotionSection";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { portfolioContent } from "@/data/content";
+import type { Locale } from "@/data/i18n";
 
-const paragraphs = [
-  "I am a computer science student at FH Wiener Neustadt with practical C#/.NET full-stack experience. At FOTEC, I worked on business applications using .NET MAUI, ASP.NET Core, Blazor, EF Core and REST APIs.",
-  "My current focus is moving deeper into Linux, Docker, Kubernetes, distributed systems and platform engineering. My bachelor thesis examines the migration of a Docker Compose based multi-server architecture into Kubernetes, with emphasis on recovery, reproducibility and maintainability.",
-  "Before studying computer science, I worked for several years as a chef and kitchen lead. That background still shapes how I approach responsibility, structured work, operational thinking and practical problem solving.",
-];
+type AboutSectionProps = {
+  locale: Locale;
+};
 
-const highlights = [
-  "Hands-on .NET application work",
-  "Linux and Kubernetes direction",
-  "Practical operational background",
-];
+export function AboutSection({ locale }: AboutSectionProps) {
+  const { about } = portfolioContent[locale];
 
-export function AboutSection() {
   return (
     <MotionSection
       id="about"
@@ -25,18 +21,18 @@ export function AboutSection() {
       <Container>
         <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10">
           <SectionHeading
-            eyebrow="About"
-            title="Software engineering with a practical systems mindset."
+            eyebrow={about.eyebrow}
+            title={about.title}
             titleId="about-title"
           />
           <Card className="p-5 sm:p-6">
             <div className="space-y-5 text-base leading-8 text-slate-300">
-              {paragraphs.map((paragraph) => (
+              {about.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
             <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              {highlights.map((item) => (
+              {about.highlights.map((item) => (
                 <div key={item} className="rounded-lg border border-white/10 bg-slate-950/50 p-4">
                   <p className="text-sm font-semibold text-slate-100">{item}</p>
                 </div>

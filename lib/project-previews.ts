@@ -1,5 +1,6 @@
 import { existsSync, readdirSync } from "node:fs";
 import { join, parse } from "node:path";
+import type { Locale } from "@/data/i18n";
 
 const imageExtensions = new Set([".avif", ".jpeg", ".jpg", ".png", ".webp"]);
 const extensionPreference = [".webp", ".avif", ".png", ".jpg", ".jpeg"];
@@ -12,6 +13,7 @@ export type ProjectPreview = {
 export function getProjectPreview(
   projectName: string,
   projectLabel: string,
+  locale: Locale = "en",
 ): ProjectPreview | null {
   const imagesDirectory = join(process.cwd(), "public", "images");
 
@@ -33,7 +35,10 @@ export function getProjectPreview(
   return imageFile
     ? {
         src: `/images/${imageFile}`,
-        alt: `Preview image for ${projectName}, a ${projectLabel} project.`,
+        alt:
+          locale === "de"
+            ? `Vorschaubild für ${projectName}, ein Projekt im Bereich ${projectLabel}.`
+            : `Preview image for ${projectName}, a ${projectLabel} project.`,
       }
     : null;
 }

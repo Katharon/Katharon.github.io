@@ -3,32 +3,16 @@ import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/layout/Container";
 import { MotionSection } from "@/components/home/MotionSection";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { portfolioContent } from "@/data/content";
+import type { Locale } from "@/data/i18n";
 
-const experienceItems = [
-  {
-    title: "Junior Developer",
-    organization: "FOTEC",
-    period: "09/2024-03/2025",
-    description:
-      "Part-time development of business applications using .NET MAUI, ASP.NET Core, Blazor, EF Core, REST APIs, Git and Docker.",
-  },
-  {
-    title: "Software Development Intern",
-    organization: "FOTEC",
-    period: "07/2024",
-    description:
-      "Built a Python/Raspberry Pi prototype for camera-based quality inspection of rotating product packaging, plus GoPro API integration in an assembly-line context.",
-  },
-  {
-    title: "Gastronomy Leadership Background",
-    organization: "Professional kitchens",
-    period: "2014-2023",
-    description:
-      "Professional kitchen experience with sous-chef and kitchen-lead responsibilities, including ordering, costing, HACCP, duty planning and operational coordination.",
-  },
-];
+type ExperienceSectionProps = {
+  locale: Locale;
+};
 
-export function ExperienceSection() {
+export function ExperienceSection({ locale }: ExperienceSectionProps) {
+  const { experience } = portfolioContent[locale];
+
   return (
     <MotionSection
       id="experience"
@@ -37,12 +21,12 @@ export function ExperienceSection() {
     >
       <Container>
         <SectionHeading
-          eyebrow="Experience"
-          title="Professional work shaped by systems and operations."
+          eyebrow={experience.eyebrow}
+          title={experience.title}
           titleId="experience-title"
         />
         <div className="mt-9 grid gap-4">
-          {experienceItems.map((item) => (
+          {experience.items.map((item) => (
             <Card key={`${item.title}-${item.period}`} className="p-5 sm:p-6">
               <div className="grid gap-4 sm:grid-cols-[auto_1fr_auto] sm:items-start sm:gap-5">
                 <div className="grid size-11 place-items-center rounded-lg border border-sky-300/20 bg-sky-300/10">

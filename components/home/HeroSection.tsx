@@ -16,36 +16,19 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/layout/Container";
+import { portfolioContent } from "@/data/content";
+import type { Locale } from "@/data/i18n";
 
 type HeroSectionProps = {
+  locale: Locale;
   cvHref: string | null;
 };
 
-const signalItems = [
-  "C#/.NET application development",
-  "Linux, Docker and Kubernetes fundamentals",
-  "Distributed systems and architecture thinking",
-];
+const personalDetailIcons = [MapPin, GraduationCap, BriefcaseBusiness];
 
-const personalDetails = [
-  {
-    label: "Based in",
-    value: profile.location,
-    icon: MapPin,
-  },
-  {
-    label: "Studying at",
-    value: "FH Wiener Neustadt",
-    icon: GraduationCap,
-  },
-  {
-    label: "Background",
-    value: "Operations background from kitchen leadership",
-    icon: BriefcaseBusiness,
-  },
-];
+export function HeroSection({ locale, cvHref }: HeroSectionProps) {
+  const { aria, hero } = portfolioContent[locale];
 
-export function HeroSection({ cvHref }: HeroSectionProps) {
   return (
     <section
       id="top"
@@ -54,17 +37,14 @@ export function HeroSection({ cvHref }: HeroSectionProps) {
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_15%_10%,rgba(56,189,248,0.18),transparent_32rem),radial-gradient(circle_at_90%_15%,rgba(59,130,246,0.12),transparent_28rem),linear-gradient(180deg,rgba(15,23,42,0)_0%,rgba(15,23,42,0.96)_88%)]" />
       <Container className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
         <div>
-          <Badge className="mb-5 sm:mb-6">Junior software engineer portfolio</Badge>
+          <Badge className="mb-5 sm:mb-6">{hero.badge}</Badge>
           <h1 className="max-w-4xl text-4xl leading-tight font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
             {profile.name}
           </h1>
           <p className="mt-5 max-w-3xl text-xl leading-8 text-slate-100 sm:mt-6 sm:text-2xl sm:leading-9">
-            {profile.role}
+            {profile.role[locale]}
           </p>
-          <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-            I build practical software projects and study how reliable backend systems,
-            infrastructure automation and maintainable architecture fit together.
-          </p>
+          <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">{hero.intro}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button
               href="#projects"
@@ -72,32 +52,33 @@ export function HeroSection({ cvHref }: HeroSectionProps) {
               icon={ArrowRight}
               className="w-full sm:w-auto"
             >
-              View Projects
+              {hero.buttons.projects}
             </Button>
             <Button
               href={profile.github}
               external
               icon={Code2}
-              ariaLabel="Open Lukas Stumpfel on GitHub"
+              ariaLabel={aria.openGithub}
               className="min-w-32 flex-1 sm:flex-none"
             >
-              GitHub
+              {hero.buttons.github}
             </Button>
             <Button
               href={profile.linkedin}
               external
               icon={ExternalLink}
-              ariaLabel="Open Lukas Stumpfel on LinkedIn"
+              ariaLabel={aria.openLinkedin}
               className="min-w-32 flex-1 sm:flex-none"
             >
-              LinkedIn
+              {hero.buttons.linkedin}
             </Button>
             <Button
               href={`mailto:${profile.email}`}
               icon={Mail}
+              ariaLabel={aria.emailProfile}
               className="min-w-32 flex-1 sm:flex-none"
             >
-              Email
+              {hero.buttons.email}
             </Button>
             {cvHref ? (
               <Button
@@ -106,23 +87,28 @@ export function HeroSection({ cvHref }: HeroSectionProps) {
                 download
                 className="min-w-32 flex-1 sm:flex-none"
               >
-                Download CV
+                {hero.buttons.cv}
               </Button>
             ) : null}
           </div>
           <dl className="mt-8 grid gap-3 sm:grid-cols-3">
-            {personalDetails.map((detail) => (
+            {hero.details.map((detail, index) => {
+              const Icon = personalDetailIcons[index] ?? MapPin;
+              const value = "valueKey" in detail ? profile.location[locale] : detail.value;
+
+              return (
               <div
                 key={detail.label}
                 className="rounded-lg border border-white/10 bg-white/[0.035] p-4"
               >
                 <div className="flex items-center gap-2 text-xs font-medium text-sky-200">
-                  <detail.icon aria-hidden="true" className="size-4" />
+                  <Icon aria-hidden="true" className="size-4" />
                   <dt>{detail.label}</dt>
                 </div>
-                <dd className="mt-2 text-sm leading-6 text-slate-200">{detail.value}</dd>
+                <dd className="mt-2 text-sm leading-6 text-slate-200">{value}</dd>
               </div>
-            ))}
+              );
+            })}
           </dl>
         </div>
 
@@ -130,7 +116,7 @@ export function HeroSection({ cvHref }: HeroSectionProps) {
           <div className="border-b border-white/10 bg-slate-900/80 px-5 py-4">
             <div className="flex items-center gap-2 text-sm font-medium text-slate-200">
               <Terminal aria-hidden="true" className="size-4 text-sky-300" />
-              current-profile.md
+              {hero.profileFile}
             </div>
           </div>
           <div className="space-y-4 p-5 sm:space-y-5 sm:p-6">
@@ -152,10 +138,10 @@ export function HeroSection({ cvHref }: HeroSectionProps) {
             <div className="rounded-lg border border-white/10 bg-slate-950/70 p-5">
               <div className="mb-4 flex items-center gap-2 text-sm font-semibold text-slate-200">
                 <Network aria-hidden="true" className="size-4 text-sky-300" />
-                Current focus
+                {hero.currentFocusTitle}
               </div>
               <ul className="space-y-3">
-                {signalItems.map((item) => (
+                {hero.signalItems.map((item) => (
                   <li key={item} className="flex gap-3 text-sm leading-6 text-slate-300">
                     <span className="mt-2 size-1.5 shrink-0 rounded-full bg-sky-300" />
                     <span>{item}</span>
@@ -165,12 +151,9 @@ export function HeroSection({ cvHref }: HeroSectionProps) {
             </div>
             <div className="rounded-lg border border-sky-300/15 bg-sky-300/[0.07] p-5">
               <p className="font-mono text-xs font-semibold tracking-[0.2em] text-sky-200 uppercase">
-                Thesis path
+                {hero.thesisLabel}
               </p>
-              <p className="mt-3 text-sm leading-6 text-slate-300">
-                Exploring how a Docker Compose based multi-server setup can be migrated toward
-                Kubernetes with emphasis on recovery, reproducibility and maintainability.
-              </p>
+              <p className="mt-3 text-sm leading-6 text-slate-300">{hero.thesisText}</p>
             </div>
           </div>
         </Card>

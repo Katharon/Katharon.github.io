@@ -3,30 +3,22 @@ import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/layout/Container";
 import { MotionSection } from "@/components/home/MotionSection";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { portfolioContent } from "@/data/content";
+import type { Locale } from "@/data/i18n";
 
-const educationItems = [
-  {
-    degree: "B.Sc. Computer Science",
-    institution: "FH Wiener Neustadt",
-    period: "Expected 07/2026",
-    description:
-      "Coursework and project work across programming, software architecture, distributed systems, databases, UX, software testing, IT security and IT operations.",
-  },
-  {
-    degree: "M.Sc. Computer Science - Software and Security Engineering",
-    institution: "FH Wiener Neustadt",
-    period: "Starting 09/2026",
-    description: "Admitted, with planned focus on software and security engineering.",
-  },
-];
+type EducationSectionProps = {
+  locale: Locale;
+};
 
-export function EducationSection() {
+export function EducationSection({ locale }: EducationSectionProps) {
+  const { education } = portfolioContent[locale];
+
   return (
     <MotionSection className="border-y border-white/[0.06] bg-slate-900/25 py-12 sm:py-16 lg:py-20">
       <Container>
-        <SectionHeading eyebrow="Education" title="Computer science foundation." />
+        <SectionHeading eyebrow={education.eyebrow} title={education.title} />
         <div className="mt-9 grid gap-4 md:grid-cols-2">
-          {educationItems.map((item) => (
+          {education.items.map((item) => (
             <Card key={item.degree} className="p-5 sm:p-6">
               <div className="flex items-start gap-4">
                 <div className="grid size-11 shrink-0 place-items-center rounded-lg border border-sky-300/20 bg-sky-300/10">
