@@ -21,7 +21,7 @@ export function ProjectsSection({ locale }: ProjectsSectionProps) {
   return (
     <MotionSection
       id="projects"
-      className="border-y border-white/[0.06] bg-slate-900/30 py-12 sm:py-16 lg:py-20"
+      className="border-y border-[color:var(--site-border-soft)] bg-[var(--site-surface-muted)] py-12 sm:py-16 lg:py-20"
       ariaLabelledby="projects-title"
     >
       <Container>
@@ -49,13 +49,13 @@ export function ProjectsSection({ locale }: ProjectsSectionProps) {
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <Badge>{project.label}</Badge>
-                      <h3 className="mt-4 text-2xl font-semibold tracking-tight text-white">
+                      <h3 className="mt-4 text-2xl font-semibold tracking-tight text-[var(--site-heading)]">
                         {project.name}
                       </h3>
                     </div>
                     <a
                       aria-label={aria.openProject.replace("{project}", project.name)}
-                      className="grid min-h-11 min-w-11 shrink-0 place-items-center rounded-md border border-white/10 text-slate-300 transition hover:border-sky-300/40 hover:bg-sky-400/10 hover:text-white"
+                      className="grid min-h-11 min-w-11 shrink-0 place-items-center rounded-md border border-[color:var(--site-border)] text-[var(--site-muted)] transition hover:border-[color:var(--site-accent-border)] hover:bg-[var(--site-accent-soft)] hover:text-[var(--site-heading)]"
                       href={project.href}
                       target="_blank"
                       rel="noreferrer"
@@ -63,13 +63,18 @@ export function ProjectsSection({ locale }: ProjectsSectionProps) {
                       <ExternalLink aria-hidden="true" className="size-4" />
                     </a>
                   </div>
-                  <p className="mt-5 text-base leading-8 text-slate-300">{project.description}</p>
-                  <p className="mt-4 text-sm leading-6 text-sky-100/90">
+                  <p className="mt-5 text-base leading-8 text-[var(--site-muted)]">
+                    {project.description}
+                  </p>
+                  <p className="mt-4 text-sm leading-6 text-[var(--site-accent-text)]">
                     {project.demonstrates}
                   </p>
                   <div className="mt-auto flex flex-wrap gap-2 pt-6">
                     {project.tech.map((tech) => (
-                      <Badge key={tech} className="border-white/10 bg-white/[0.04] text-slate-200">
+                      <Badge
+                        key={tech}
+                        className="border-[color:var(--site-border)] bg-[var(--site-control-bg)] text-[var(--site-muted)]"
+                      >
                         {tech}
                       </Badge>
                     ))}
@@ -94,7 +99,7 @@ function ProjectPreviewFrame({
   fallbackLabel: string;
 }) {
   return (
-    <div className="relative aspect-[16/9] overflow-hidden border-b border-white/10 bg-slate-950">
+    <div className="relative aspect-[16/9] overflow-hidden border-b border-[color:var(--site-border)] bg-[var(--site-card-deep-bg)]">
       {preview ? (
         <Image
           src={preview.src}
@@ -104,16 +109,16 @@ function ProjectPreviewFrame({
           className="object-cover transition duration-500 group-hover:scale-[1.02]"
         />
       ) : (
-        <div className="flex h-full items-center justify-center bg-[radial-gradient(circle_at_30%_20%,rgba(56,189,248,0.16),transparent_14rem),linear-gradient(135deg,rgba(15,23,42,0.96),rgba(2,6,23,1))] p-6">
-          <div className="w-full rounded-lg border border-white/10 bg-slate-950/70 p-4">
-            <p className="font-mono text-xs font-semibold tracking-[0.2em] text-sky-200 uppercase">
+        <div className="flex h-full items-center justify-center bg-[image:var(--site-preview-bg)] p-6">
+          <div className="w-full rounded-lg border border-[color:var(--site-border)] bg-[var(--site-card-deep-bg)] p-4">
+            <p className="font-mono text-xs font-semibold tracking-[0.2em] text-[var(--site-accent-text)] uppercase">
               {fallbackLabel}
             </p>
-            <p className="mt-3 text-lg font-semibold text-white">{projectName}</p>
+            <p className="mt-3 text-lg font-semibold text-[var(--site-heading)]">{projectName}</p>
           </div>
         </div>
       )}
-      <div className="pointer-events-none absolute inset-0 ring-1 ring-white/10 ring-inset" />
+      <div className="pointer-events-none absolute inset-0 ring-1 ring-[color:var(--site-border)] ring-inset" />
     </div>
   );
 }

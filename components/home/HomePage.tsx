@@ -19,7 +19,7 @@ export function HomePage({ locale }: HomePageProps) {
   const cvHref = getCvHref();
 
   return (
-    <div className="flex min-h-screen flex-col overflow-x-hidden bg-slate-950">
+    <div className="flex min-h-screen flex-col overflow-x-hidden bg-[var(--site-bg)]">
       <Header locale={locale} />
       <main className="flex-1">
         <HeroSection locale={locale} cvHref={cvHref} />

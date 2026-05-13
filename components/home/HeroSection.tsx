@@ -34,17 +34,19 @@ export function HeroSection({ locale, cvHref }: HeroSectionProps) {
       id="top"
       className="relative overflow-hidden pt-12 pb-12 sm:pt-20 sm:pb-16 lg:pt-28 lg:pb-24"
     >
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_15%_10%,rgba(56,189,248,0.18),transparent_32rem),radial-gradient(circle_at_90%_15%,rgba(59,130,246,0.12),transparent_28rem),linear-gradient(180deg,rgba(15,23,42,0)_0%,rgba(15,23,42,0.96)_88%)]" />
+      <div className="absolute inset-0 -z-10 bg-[image:var(--site-hero-bg)]" />
       <Container className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
         <div>
           <Badge className="mb-5 sm:mb-6">{hero.badge}</Badge>
-          <h1 className="max-w-4xl text-4xl leading-tight font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="max-w-4xl text-4xl leading-tight font-semibold tracking-tight text-[var(--site-heading)] sm:text-5xl lg:text-6xl">
             {profile.name}
           </h1>
-          <p className="mt-5 max-w-3xl text-xl leading-8 text-slate-100 sm:mt-6 sm:text-2xl sm:leading-9">
+          <p className="mt-5 max-w-3xl text-xl leading-8 text-[var(--site-heading)] sm:mt-6 sm:text-2xl sm:leading-9">
             {profile.role[locale]}
           </p>
-          <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">{hero.intro}</p>
+          <p className="mt-5 max-w-2xl text-base leading-8 text-[var(--site-muted)] sm:text-lg">
+            {hero.intro}
+          </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button
               href="#projects"
@@ -97,25 +99,25 @@ export function HeroSection({ locale, cvHref }: HeroSectionProps) {
               const value = "valueKey" in detail ? profile.location[locale] : detail.value;
 
               return (
-              <div
-                key={detail.label}
-                className="rounded-lg border border-white/10 bg-white/[0.035] p-4"
-              >
-                <div className="flex items-center gap-2 text-xs font-medium text-sky-200">
-                  <Icon aria-hidden="true" className="size-4" />
-                  <dt>{detail.label}</dt>
+                <div
+                  key={detail.label}
+                  className="rounded-lg border border-[color:var(--site-border)] bg-[var(--site-card-bg)] p-4"
+                >
+                  <div className="flex items-center gap-2 text-xs font-medium text-[var(--site-accent-text)]">
+                    <Icon aria-hidden="true" className="size-4" />
+                    <dt>{detail.label}</dt>
+                  </div>
+                  <dd className="mt-2 text-sm leading-6 text-[var(--site-muted)]">{value}</dd>
                 </div>
-                <dd className="mt-2 text-sm leading-6 text-slate-200">{value}</dd>
-              </div>
               );
             })}
           </dl>
         </div>
 
-        <Card className="relative overflow-hidden p-0 shadow-2xl shadow-sky-950/20">
-          <div className="border-b border-white/10 bg-slate-900/80 px-5 py-4">
-            <div className="flex items-center gap-2 text-sm font-medium text-slate-200">
-              <Terminal aria-hidden="true" className="size-4 text-sky-300" />
+        <Card className="relative overflow-hidden p-0 shadow-[var(--site-shadow-accent)]">
+          <div className="border-b border-[color:var(--site-border)] bg-[var(--site-card-strong-bg)] px-5 py-4">
+            <div className="flex items-center gap-2 text-sm font-medium text-[var(--site-muted)]">
+              <Terminal aria-hidden="true" className="size-4 text-[var(--site-accent)]" />
               {hero.profileFile}
             </div>
           </div>
@@ -128,32 +130,32 @@ export function HeroSection({ locale, cvHref }: HeroSectionProps) {
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="rounded-lg border border-white/10 bg-slate-950/60 p-4"
+                  className="rounded-lg border border-[color:var(--site-border)] bg-[var(--site-card-strong-bg)] p-4"
                 >
-                  <item.icon aria-hidden="true" className="mb-4 size-5 text-sky-300" />
-                  <p className="font-mono text-sm text-slate-100">{item.label}</p>
+                  <item.icon aria-hidden="true" className="mb-4 size-5 text-[var(--site-accent)]" />
+                  <p className="font-mono text-sm text-[var(--site-heading)]">{item.label}</p>
                 </div>
               ))}
             </div>
-            <div className="rounded-lg border border-white/10 bg-slate-950/70 p-5">
-              <div className="mb-4 flex items-center gap-2 text-sm font-semibold text-slate-200">
-                <Network aria-hidden="true" className="size-4 text-sky-300" />
+            <div className="rounded-lg border border-[color:var(--site-border)] bg-[var(--site-card-deep-bg)] p-5">
+              <div className="mb-4 flex items-center gap-2 text-sm font-semibold text-[var(--site-heading)]">
+                <Network aria-hidden="true" className="size-4 text-[var(--site-accent)]" />
                 {hero.currentFocusTitle}
               </div>
               <ul className="space-y-3">
                 {hero.signalItems.map((item) => (
-                  <li key={item} className="flex gap-3 text-sm leading-6 text-slate-300">
-                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-sky-300" />
+                  <li key={item} className="flex gap-3 text-sm leading-6 text-[var(--site-muted)]">
+                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-[var(--site-accent)]" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="rounded-lg border border-sky-300/15 bg-sky-300/[0.07] p-5">
-              <p className="font-mono text-xs font-semibold tracking-[0.2em] text-sky-200 uppercase">
+            <div className="rounded-lg border border-[color:var(--site-accent-border)] bg-[var(--site-accent-muted)] p-5">
+              <p className="font-mono text-xs font-semibold tracking-[0.2em] text-[var(--site-accent-text)] uppercase">
                 {hero.thesisLabel}
               </p>
-              <p className="mt-3 text-sm leading-6 text-slate-300">{hero.thesisText}</p>
+              <p className="mt-3 text-sm leading-6 text-[var(--site-muted)]">{hero.thesisText}</p>
             </div>
           </div>
         </Card>

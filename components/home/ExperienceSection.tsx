@@ -29,17 +29,21 @@ export function ExperienceSection({ locale }: ExperienceSectionProps) {
           {experience.items.map((item) => (
             <Card key={`${item.title}-${item.period}`} className="p-5 sm:p-6">
               <div className="grid gap-4 sm:grid-cols-[auto_1fr_auto] sm:items-start sm:gap-5">
-                <div className="grid size-11 place-items-center rounded-lg border border-sky-300/20 bg-sky-300/10">
-                  <BriefcaseBusiness aria-hidden="true" className="size-5 text-sky-300" />
+                <div className="grid size-11 place-items-center rounded-lg border border-[color:var(--site-accent-border)] bg-[var(--site-accent-soft)]">
+                  <BriefcaseBusiness aria-hidden="true" className="size-5 text-[var(--site-accent)]" />
                 </div>
                 <div>
-                  <h3 className="text-lg leading-7 font-semibold text-white">
-                    {item.title} <span className="text-slate-500">-</span>{" "}
-                    <span className="text-slate-200">{item.organization}</span>
+                  <h3 className="text-lg leading-7 font-semibold text-[var(--site-heading)]">
+                    {item.title} <span className="text-[var(--site-faint)]">-</span>{" "}
+                    <span className="text-[var(--site-muted)]">{item.organization}</span>
                   </h3>
-                  <p className="mt-3 text-base leading-7 text-slate-300">{item.description}</p>
+                  <p className="mt-3 text-base leading-7 text-[var(--site-muted)]">
+                    {item.description}
+                  </p>
                 </div>
-                <p className="font-mono text-sm text-sky-200 sm:text-right">{item.period}</p>
+                <p className="font-mono text-sm text-[var(--site-accent-text)] sm:text-right">
+                  {item.period}
+                </p>
               </div>
             </Card>
           ))}

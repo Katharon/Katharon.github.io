@@ -54,13 +54,13 @@ export function ContactSection({ locale }: ContactSectionProps) {
   return (
     <MotionSection
       id="contact"
-      className="border-t border-white/[0.06] bg-slate-950/80 py-12 sm:py-16 lg:py-20"
+      className="border-t border-[color:var(--site-border-soft)] bg-[var(--site-surface)] py-12 sm:py-16 lg:py-20"
       ariaLabelledby="contact-title"
     >
       <Container>
         <Card className="overflow-hidden p-0">
           <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="border-b border-white/10 p-6 sm:p-8 lg:border-r lg:border-b-0">
+            <div className="border-b border-[color:var(--site-border)] p-6 sm:p-8 lg:border-r lg:border-b-0">
               <SectionHeading
                 eyebrow={contact.eyebrow}
                 title={contact.title}
@@ -78,7 +78,7 @@ export function ContactSection({ locale }: ContactSectionProps) {
                 </Button>
               </div>
             </div>
-            <div className="grid gap-0 divide-y divide-white/10">
+            <div className="grid gap-0 divide-y divide-[color:var(--site-border)]">
               {contactLinks.map((item) => (
                 <ContactItem key={item.label} item={item} aria={aria} />
               ))}
@@ -94,22 +94,26 @@ function ContactItem({ item, aria }: { item: ContactLink; aria: PortfolioContent
   const content = (
     <>
       <span className="flex items-center gap-4">
-        <span className="grid size-10 shrink-0 place-items-center rounded-lg border border-sky-300/20 bg-sky-300/10">
-          <item.icon aria-hidden="true" className="size-5 text-sky-300" />
+        <span className="grid size-10 shrink-0 place-items-center rounded-lg border border-[color:var(--site-accent-border)] bg-[var(--site-accent-soft)]">
+          <item.icon aria-hidden="true" className="size-5 text-[var(--site-accent)]" />
         </span>
         <span>
-          <span className="block text-sm font-medium text-slate-400">{item.label}</span>
-          <span className="mt-1 block text-base font-semibold break-all text-white">
+          <span className="block text-sm font-medium text-[var(--site-subtle)]">
+            {item.label}
+          </span>
+          <span className="mt-1 block text-base font-semibold break-all text-[var(--site-heading)]">
             {item.value}
           </span>
         </span>
       </span>
-      {item.external ? <ExternalLink aria-hidden="true" className="size-4 text-slate-500" /> : null}
+      {item.external ? (
+        <ExternalLink aria-hidden="true" className="size-4 text-[var(--site-faint)]" />
+      ) : null}
     </>
   );
 
   const className =
-    "flex min-h-20 items-center justify-between gap-4 p-5 transition hover:bg-white/[0.04] sm:p-6";
+    "flex min-h-20 items-center justify-between gap-4 p-5 transition hover:bg-[var(--site-control-hover)] sm:p-6";
 
   if (!("href" in item)) {
     return <div className={className}>{content}</div>;

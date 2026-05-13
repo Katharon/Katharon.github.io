@@ -14,21 +14,29 @@ export function EducationSection({ locale }: EducationSectionProps) {
   const { education } = portfolioContent[locale];
 
   return (
-    <MotionSection className="border-y border-white/[0.06] bg-slate-900/25 py-12 sm:py-16 lg:py-20">
+    <MotionSection className="border-y border-[color:var(--site-border-soft)] bg-[var(--site-surface-soft)] py-12 sm:py-16 lg:py-20">
       <Container>
         <SectionHeading eyebrow={education.eyebrow} title={education.title} />
         <div className="mt-9 grid gap-4 md:grid-cols-2">
           {education.items.map((item) => (
             <Card key={item.degree} className="p-5 sm:p-6">
               <div className="flex items-start gap-4">
-                <div className="grid size-11 shrink-0 place-items-center rounded-lg border border-sky-300/20 bg-sky-300/10">
-                  <GraduationCap aria-hidden="true" className="size-5 text-sky-300" />
+                <div className="grid size-11 shrink-0 place-items-center rounded-lg border border-[color:var(--site-accent-border)] bg-[var(--site-accent-soft)]">
+                  <GraduationCap aria-hidden="true" className="size-5 text-[var(--site-accent)]" />
                 </div>
                 <div>
-                  <p className="font-mono text-sm text-sky-200">{item.period}</p>
-                  <h3 className="mt-3 text-lg font-semibold text-white">{item.degree}</h3>
-                  <p className="mt-1 text-sm font-medium text-slate-300">{item.institution}</p>
-                  <p className="mt-4 text-base leading-7 text-slate-300">{item.description}</p>
+                  <p className="font-mono text-sm text-[var(--site-accent-text)]">
+                    {item.period}
+                  </p>
+                  <h3 className="mt-3 text-lg font-semibold text-[var(--site-heading)]">
+                    {item.degree}
+                  </h3>
+                  <p className="mt-1 text-sm font-medium text-[var(--site-muted)]">
+                    {item.institution}
+                  </p>
+                  <p className="mt-4 text-base leading-7 text-[var(--site-muted)]">
+                    {item.description}
+                  </p>
                 </div>
               </div>
             </Card>

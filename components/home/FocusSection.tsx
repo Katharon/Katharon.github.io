@@ -36,9 +36,13 @@ export function FocusSection({ locale }: FocusSectionProps) {
 
             return (
               <Card key={area.title} className="p-5">
-                <Icon aria-hidden="true" className="size-6 text-sky-300" />
-                <h3 className="mt-4 text-base font-semibold text-white sm:mt-5">{area.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-300">{area.description}</p>
+                <Icon aria-hidden="true" className="size-6 text-[var(--site-accent)]" />
+                <h3 className="mt-4 text-base font-semibold text-[var(--site-heading)] sm:mt-5">
+                  {area.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-[var(--site-muted)]">
+                  {area.description}
+                </p>
               </Card>
             );
           })}

@@ -27,10 +27,13 @@ export function TechStackSection({ locale }: TechStackSectionProps) {
         <div className="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {skillGroups.map((group) => (
             <Card key={group.title} className="p-5 sm:p-6">
-              <h3 className="text-lg font-semibold text-white">{group.title}</h3>
+              <h3 className="text-lg font-semibold text-[var(--site-heading)]">{group.title}</h3>
               <div className="mt-5 flex flex-wrap gap-2">
                 {group.skills.map((skill) => (
-                  <Badge key={skill} className="border-white/10 bg-slate-950/50 text-slate-200">
+                  <Badge
+                    key={skill}
+                    className="border-[color:var(--site-border)] bg-[var(--site-card-strong-bg)] text-[var(--site-muted)]"
+                  >
                     {skill}
                   </Badge>
                 ))}

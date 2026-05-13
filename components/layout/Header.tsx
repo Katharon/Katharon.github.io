@@ -3,6 +3,7 @@ import { profile } from "@/data/profile";
 import { Container } from "@/components/layout/Container";
 import { getAlternateLocale, localeLabels, localeNames, localeRoutes, type Locale } from "@/data/i18n";
 import { portfolioContent } from "@/data/content";
+import { ThemeSelector } from "@/components/theme/ThemeSelector";
 
 type HeaderProps = {
   locale: Locale;
@@ -12,14 +13,14 @@ export function Header({ locale }: HeaderProps) {
   const { aria, header } = portfolioContent[locale];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-[color:var(--site-border)] bg-[var(--site-header-bg)] backdrop-blur-xl">
       <Container className="flex min-h-16 items-center justify-between gap-4">
         <a
-          className="group inline-flex min-h-11 items-center gap-3 text-sm font-semibold text-white"
+          className="group inline-flex min-h-11 items-center gap-3 text-sm font-semibold text-[var(--site-heading)]"
           href="#top"
           aria-label={aria.home}
         >
-          <span className="grid size-9 place-items-center rounded-lg border border-sky-300/30 bg-sky-300/10 font-mono text-sky-200">
+          <span className="grid size-9 place-items-center rounded-lg border border-[color:var(--site-accent-border)] bg-[var(--site-accent-soft)] font-mono text-[var(--site-accent-text)]">
             LS
           </span>
           <span className="hidden sm:inline">{profile.name}</span>
@@ -29,17 +30,18 @@ export function Header({ locale }: HeaderProps) {
             {header.navigation.map((item) => (
               <a
                 key={item.href}
-                className="inline-flex min-h-11 items-center rounded-md px-3 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/[0.06] hover:text-white"
+                className="inline-flex min-h-11 items-center rounded-md px-3 py-2 text-sm font-medium text-[var(--site-muted)] transition hover:bg-[var(--site-control-hover)] hover:text-[var(--site-heading)]"
                 href={item.href}
               >
                 {item.label}
               </a>
             ))}
           </nav>
+          <ThemeSelector locale={locale} ariaLabel={aria.themeNav} />
           <LanguageSwitcher locale={locale} ariaLabel={aria.languageNav} />
         </div>
       </Container>
-      <div className="border-t border-white/[0.06] md:hidden">
+      <div className="border-t border-[color:var(--site-border-soft)] md:hidden">
         <Container>
           <nav
             className="-mx-2 flex gap-1 overflow-x-auto py-2"
@@ -48,7 +50,7 @@ export function Header({ locale }: HeaderProps) {
             {header.navigation.map((item) => (
               <a
                 key={item.href}
-                className="inline-flex min-h-11 shrink-0 items-center rounded-md px-3 text-sm font-medium text-slate-300 transition hover:bg-white/[0.06] hover:text-white"
+                className="inline-flex min-h-11 shrink-0 items-center rounded-md px-3 text-sm font-medium text-[var(--site-muted)] transition hover:bg-[var(--site-control-hover)] hover:text-[var(--site-heading)]"
                 href={item.href}
               >
                 {item.label}
@@ -67,7 +69,7 @@ function LanguageSwitcher({ locale, ariaLabel }: { locale: Locale; ariaLabel: st
   return (
     <nav
       aria-label={ariaLabel}
-      className="inline-flex rounded-lg border border-white/10 bg-white/[0.04] p-1"
+      className="inline-flex rounded-lg border border-[color:var(--site-border)] bg-[var(--site-control-bg)] p-1"
     >
       {([locale, alternateLocale] as const).map((item) => {
         const isActive = item === locale;
@@ -82,8 +84,8 @@ function LanguageSwitcher({ locale, ariaLabel }: { locale: Locale; ariaLabel: st
             className={clsx(
               "inline-flex min-h-9 min-w-10 items-center justify-center rounded-md px-2.5 font-mono text-xs font-semibold transition",
               isActive
-                ? "bg-sky-300/15 text-sky-100"
-                : "text-slate-400 hover:bg-white/[0.06] hover:text-white",
+                ? "bg-[var(--site-accent-soft)] text-[var(--site-accent-text)]"
+                : "text-[var(--site-subtle)] hover:bg-[var(--site-control-hover)] hover:text-[var(--site-heading)]",
             )}
           >
             {localeLabels[item]}

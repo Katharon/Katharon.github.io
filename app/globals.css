@@ -1,11 +1,112 @@
 @import "tailwindcss";
 
 :root {
-  --background: #020617;
-  --foreground: #e2e8f0;
+  color-scheme: dark;
   --site-font-sans:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --site-font-mono: "SFMono-Regular", "Cascadia Code", "Liberation Mono", Consolas, monospace;
+  --site-bg: #020617;
+  --site-surface: rgba(15, 23, 42, 0.7);
+  --site-surface-muted: rgba(15, 23, 42, 0.3);
+  --site-surface-soft: rgba(15, 23, 42, 0.25);
+  --site-header-bg: rgba(2, 6, 23, 0.8);
+  --site-footer-bg: #020617;
+  --site-card-bg: rgba(255, 255, 255, 0.04);
+  --site-card-strong-bg: rgba(2, 6, 23, 0.6);
+  --site-card-deep-bg: rgba(2, 6, 23, 0.72);
+  --site-control-bg: rgba(255, 255, 255, 0.04);
+  --site-control-hover: rgba(255, 255, 255, 0.06);
+  --site-border: rgba(255, 255, 255, 0.1);
+  --site-border-soft: rgba(255, 255, 255, 0.06);
+  --site-text: #e2e8f0;
+  --site-heading: #ffffff;
+  --site-muted: #cbd5e1;
+  --site-subtle: #94a3b8;
+  --site-faint: #64748b;
+  --site-inverted: #020617;
+  --site-accent: #38bdf8;
+  --site-accent-hover: #7dd3fc;
+  --site-accent-text: #bae6fd;
+  --site-accent-strong: #7dd3fc;
+  --site-accent-soft: rgba(56, 189, 248, 0.12);
+  --site-accent-muted: rgba(56, 189, 248, 0.07);
+  --site-accent-border: rgba(125, 211, 252, 0.22);
+  --site-primary-bg: #38bdf8;
+  --site-primary-hover: #7dd3fc;
+  --site-primary-text: #020617;
+  --site-shadow-card: 0 20px 25px -5px rgba(2, 6, 23, 0.22), 0 8px 10px -6px rgba(2, 6, 23, 0.22);
+  --site-shadow-accent: 0 25px 50px -12px rgba(8, 47, 73, 0.24);
+  --site-hero-bg:
+    radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.18), transparent 32rem),
+    radial-gradient(circle at 90% 15%, rgba(59, 130, 246, 0.12), transparent 28rem),
+    linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.96) 88%);
+  --site-preview-bg:
+    radial-gradient(circle at 30% 20%, rgba(56, 189, 248, 0.16), transparent 14rem),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 1));
+  --background: var(--site-bg);
+  --foreground: var(--site-text);
+}
+
+[data-theme="dark"] {
+  --site-bg: #0f172a;
+  --site-surface: rgba(15, 23, 42, 0.76);
+  --site-surface-muted: rgba(30, 41, 59, 0.42);
+  --site-surface-soft: rgba(30, 41, 59, 0.32);
+  --site-header-bg: rgba(15, 23, 42, 0.82);
+  --site-footer-bg: #0f172a;
+  --site-card-bg: rgba(255, 255, 255, 0.055);
+  --site-card-strong-bg: rgba(15, 23, 42, 0.72);
+  --site-card-deep-bg: rgba(15, 23, 42, 0.82);
+  --site-border: rgba(226, 232, 240, 0.13);
+  --site-border-soft: rgba(226, 232, 240, 0.08);
+  --site-accent-soft: rgba(56, 189, 248, 0.13);
+  --site-accent-muted: rgba(56, 189, 248, 0.08);
+  --site-hero-bg:
+    radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.15), transparent 32rem),
+    radial-gradient(circle at 90% 15%, rgba(59, 130, 246, 0.1), transparent 28rem),
+    linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.9) 88%);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --site-bg: #f8fafc;
+  --site-surface: rgba(255, 255, 255, 0.72);
+  --site-surface-muted: rgba(226, 232, 240, 0.45);
+  --site-surface-soft: rgba(241, 245, 249, 0.78);
+  --site-header-bg: rgba(248, 250, 252, 0.86);
+  --site-footer-bg: #f8fafc;
+  --site-card-bg: rgba(255, 255, 255, 0.84);
+  --site-card-strong-bg: rgba(241, 245, 249, 0.82);
+  --site-card-deep-bg: rgba(226, 232, 240, 0.78);
+  --site-control-bg: rgba(15, 23, 42, 0.04);
+  --site-control-hover: rgba(2, 132, 199, 0.09);
+  --site-border: rgba(15, 23, 42, 0.13);
+  --site-border-soft: rgba(15, 23, 42, 0.08);
+  --site-text: #243244;
+  --site-heading: #0f172a;
+  --site-muted: #475569;
+  --site-subtle: #64748b;
+  --site-faint: #94a3b8;
+  --site-inverted: #f8fafc;
+  --site-accent: #0284c7;
+  --site-accent-hover: #0369a1;
+  --site-accent-text: #075985;
+  --site-accent-strong: #0369a1;
+  --site-accent-soft: rgba(2, 132, 199, 0.11);
+  --site-accent-muted: rgba(2, 132, 199, 0.07);
+  --site-accent-border: rgba(2, 132, 199, 0.2);
+  --site-primary-bg: #0284c7;
+  --site-primary-hover: #0369a1;
+  --site-primary-text: #f8fafc;
+  --site-shadow-card: 0 20px 28px -18px rgba(15, 23, 42, 0.22);
+  --site-shadow-accent: 0 25px 50px -24px rgba(2, 132, 199, 0.32);
+  --site-hero-bg:
+    radial-gradient(circle at 15% 10%, rgba(2, 132, 199, 0.13), transparent 32rem),
+    radial-gradient(circle at 88% 15%, rgba(14, 165, 233, 0.1), transparent 28rem),
+    linear-gradient(180deg, rgba(248, 250, 252, 0) 0%, rgba(248, 250, 252, 0.92) 88%);
+  --site-preview-bg:
+    radial-gradient(circle at 30% 20%, rgba(2, 132, 199, 0.14), transparent 14rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(226, 232, 240, 0.92));
 }
 
 @theme inline {
@@ -19,10 +120,13 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--site-font-sans);
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
 }
 
 :where(a, button):focus-visible {
-  outline: 2px solid rgba(125, 211, 252, 0.85);
+  outline: 2px solid color-mix(in srgb, var(--site-accent) 78%, transparent);
   outline-offset: 3px;
 }
 
@@ -53,6 +157,6 @@ html {
 }
 
 ::selection {
-  background: rgba(56, 189, 248, 0.28);
-  color: #f8fafc;
+  background: color-mix(in srgb, var(--site-accent) 28%, transparent);
+  color: var(--site-heading);
 }
