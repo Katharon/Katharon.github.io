@@ -1,0 +1,32 @@
+import { profile } from "@/data/profile";
+import { Container } from "@/components/layout/Container";
+
+export function Footer() {
+  return (
+    <footer className="border-t border-white/10 bg-slate-950">
+      <Container className="flex flex-col gap-3 py-8 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+        <p>
+          &copy; {new Date().getFullYear()} {profile.name}. Built as a static portfolio.
+        </p>
+        <div className="flex gap-4">
+          <a
+            className="transition hover:text-white"
+            href={profile.github}
+            rel="noreferrer"
+            target="_blank"
+          >
+            GitHub
+          </a>
+          <a
+            className="transition hover:text-white"
+            href={profile.linkedin}
+            rel="noreferrer"
+            target="_blank"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </Container>
+    </footer>
+  );
+}
