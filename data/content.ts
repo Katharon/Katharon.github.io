@@ -9,6 +9,7 @@ export const metadataContent: Record<
     description: string;
     openGraphLocale: string;
     alternateOpenGraphLocale: string;
+    socialImageAlt: string;
   }
 > = {
   en: {
@@ -17,6 +18,8 @@ export const metadataContent: Record<
       "Computer science student focused on C#/.NET, Linux, Kubernetes, distributed systems and software architecture.",
     openGraphLocale: "en_US",
     alternateOpenGraphLocale: "de_DE",
+    socialImageAlt:
+      "Lukas Stumpfel portfolio preview for C#/.NET, Linux, Kubernetes and distributed systems.",
   },
   de: {
     title: "Lukas Stumpfel | C#/.NET, Linux & Kubernetes",
@@ -24,6 +27,8 @@ export const metadataContent: Record<
       "Informatikstudent mit Fokus auf C#/.NET, Linux, Kubernetes, verteilte Systeme und Softwarearchitektur.",
     openGraphLocale: "de_DE",
     alternateOpenGraphLocale: "en_US",
+    socialImageAlt:
+      "Lukas Stumpfel Portfolio-Vorschau für C#/.NET, Linux, Kubernetes und verteilte Systeme.",
   },
 };
 

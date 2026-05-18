@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { localeRoutes, type Locale } from "@/data/i18n";
 import { metadataContent } from "@/data/content";
 
-const siteUrl = "https://katharon.github.io";
-const siteName = "Lukas Stumpfel Portfolio";
+export const siteUrl = "https://katharon.github.io";
+export const siteName = "Lukas Stumpfel Portfolio";
 
 const keywords = [
   "Lukas Stumpfel",
@@ -54,19 +54,31 @@ export function createPortfolioMetadata(locale: Locale): Metadata {
           url: socialImage,
           width: 1200,
           height: 630,
-          alt: content.title,
+          alt: content.socialImageAlt,
         },
       ],
     },
     robots: {
       index: true,
       follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
     twitter: {
       card: "summary_large_image",
       title: content.title,
       description: content.description,
-      images: [twitterImage],
+      images: [
+        {
+          url: twitterImage,
+          alt: content.socialImageAlt,
+        },
+      ],
     },
   };
 }
