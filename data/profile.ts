@@ -10,5 +10,5 @@ export const profile = {
   },
   email: "lukas.stumpfel@live.de",
   github: "https://github.com/Katharon",
-  linkedin: "https://www.linkedin.com/in/lukas-stumpfel-46704a2a9/",
+  linkedin: "https://www.linkedin.com/in/lukas-stumpfel/",
 };
