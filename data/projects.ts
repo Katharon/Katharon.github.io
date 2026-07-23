@@ -49,7 +49,7 @@ export const projects = [
       en: "Shows layered desktop architecture and extensibility through plugin contracts.",
       de: "Zeigt geschichtete Desktop-Architektur und Erweiterbarkeit über Plugin-Contracts.",
     },
-    tech: ["C#", ".NET 10", "WPF", "XAML", "StyleCop", "Plugin Contracts"],
+    tech: ["C#", ".NET", "WPF", "XAML", "StyleCop", "Plugin Contracts"],
     href: "https://github.com/Katharon/CodeForge",
   },
   {

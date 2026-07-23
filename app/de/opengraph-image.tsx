@@ -93,7 +93,7 @@ export default function Image() {
             lineHeight: 1.35,
           }}
         >
-          Informatikstudent mit Fokus auf verteilte Systeme, Backend-Architektur und
+          Informatikabsolvent mit Fokus auf verteilte Systeme, Backend-Architektur und
           Plattform-Engineering.
         </div>
       </div>

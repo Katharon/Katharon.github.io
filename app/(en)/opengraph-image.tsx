@@ -93,8 +93,8 @@ export default function Image() {
             lineHeight: 1.35,
           }}
         >
-          Computer science student focused on distributed systems, backend architecture and platform
-          engineering.
+          Computer science graduate focused on distributed systems, backend architecture and
+          platform engineering.
         </div>
       </div>
       <div

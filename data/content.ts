@@ -15,7 +15,7 @@ export const metadataContent: Record<
   en: {
     title: "Lukas Stumpfel | C#/.NET, Linux & Kubernetes",
     description:
-      "Computer science student focused on C#/.NET, Linux, Kubernetes, distributed systems and software architecture.",
+      "Computer science graduate focused on C#/.NET, Linux, Kubernetes, distributed systems and software architecture.",
     openGraphLocale: "en_US",
     alternateOpenGraphLocale: "de_DE",
     socialImageAlt:
@@ -24,7 +24,7 @@ export const metadataContent: Record<
   de: {
     title: "Lukas Stumpfel | C#/.NET, Linux & Kubernetes",
     description:
-      "Informatikstudent mit Fokus auf C#/.NET, Linux, Kubernetes, verteilte Systeme und Softwarearchitektur.",
+      "Informatikabsolvent mit Fokus auf C#/.NET, Linux, Kubernetes, verteilte Systeme und Softwarearchitektur.",
     openGraphLocale: "de_DE",
     alternateOpenGraphLocale: "en_US",
     socialImageAlt:
@@ -56,7 +56,7 @@ export const portfolioContent = {
       },
       details: [
         { label: "Based in", valueKey: "location" },
-        { label: "Studying at", value: "FH Wiener Neustadt" },
+        { label: "Education", value: "B.Sc. Computer Science, FH Wiener Neustadt" },
         { label: "Background", value: "Operations background from kitchen leadership" },
       ],
       profileFile: "current-profile.md",
@@ -66,15 +66,15 @@ export const portfolioContent = {
         "Linux, Docker and Kubernetes fundamentals",
         "Distributed systems and architecture thinking",
       ],
-      thesisLabel: "Thesis path",
+      thesisLabel: "Bachelor thesis",
       thesisText:
-        "Exploring how a Docker Compose based multi-server setup can be migrated toward Kubernetes with emphasis on recovery, reproducibility and maintainability.",
+        "Migration of a Docker Compose based multi-server architecture to a Kubernetes cluster, with a focus on recovery, reproducibility and maintainability.",
     },
     about: {
       eyebrow: "About",
       title: "Software engineering with a practical systems mindset.",
       paragraphs: [
-        "I am a computer science student at FH Wiener Neustadt with practical C#/.NET full-stack experience. At FOTEC, I worked on business applications using .NET MAUI, ASP.NET Core, Blazor, EF Core and REST APIs.",
+        "I am a computer science graduate at FH Wiener Neustadt with practical C#/.NET full-stack experience. At FOTEC, I worked on business applications using .NET MAUI, ASP.NET Core, Blazor, EF Core and REST APIs.",
         "My current focus is moving deeper into Linux, Docker, Kubernetes, distributed systems and platform engineering. My bachelor thesis examines the migration of a Docker Compose based multi-server architecture into Kubernetes, with emphasis on recovery, reproducibility and maintainability.",
         "Before studying computer science, I worked for several years as a chef and kitchen lead. That background still shapes how I approach responsibility, structured work, operational thinking and practical problem solving.",
       ],
@@ -136,14 +136,14 @@ export const portfolioContent = {
         {
           title: "Junior Developer",
           organization: "FOTEC",
-          period: "09/2024-03/2025",
+          period: "10/2024-03/2025",
           description:
-            "Part-time development of business applications using .NET MAUI, ASP.NET Core, Blazor, EF Core, REST APIs, Git and Docker.",
+            "Part-time development of business applications using .NET MAUI, ASP.NET Core, Blazor, EF Core, REST APIs and Git.",
         },
         {
           title: "Software Development Intern",
           organization: "FOTEC",
-          period: "07/2024",
+          period: "08/2024",
           description:
             "Built a Python/Raspberry Pi prototype for camera-based quality inspection of rotating product packaging, plus GoPro API integration in an assembly-line context.",
         },
@@ -163,9 +163,9 @@ export const portfolioContent = {
         {
           degree: "B.Sc. Computer Science",
           institution: "FH Wiener Neustadt",
-          period: "Expected 07/2026",
+          period: "Graduated 07/2026",
           description:
-            "Coursework and project work across programming, software architecture, distributed systems, databases, UX, software testing, IT security and IT operations.",
+            "Completed successfully with a strong overall result. Coursework and project work across programming, software architecture, distributed systems, databases, UX, software testing, IT security and IT operations.",
         },
         {
           degree: "M.Sc. Computer Science - Software and Security Engineering",
@@ -184,8 +184,7 @@ export const portfolioContent = {
     contact: {
       eyebrow: "Contact",
       title: "Open to junior software engineering opportunities.",
-      description:
-        "Best reached through email, GitHub or LinkedIn. Based in Lower Austria, Austria.",
+      description: "Best reached through email, GitHub or LinkedIn. Based in Burgenland, Austria.",
       button: "Email Lukas",
       links: {
         email: "Email",
@@ -233,7 +232,7 @@ export const portfolioContent = {
       },
       details: [
         { label: "Standort", valueKey: "location" },
-        { label: "Studium", value: "FH Wiener Neustadt" },
+        { label: "Ausbildung", value: "B.Sc. Informatik, FH Wiener Neustadt" },
         { label: "Hintergrund", value: "Operativer Hintergrund aus Küchenleitung" },
       ],
       profileFile: "aktuelles-profil.md",
@@ -245,13 +244,13 @@ export const portfolioContent = {
       ],
       thesisLabel: "Bachelorarbeit",
       thesisText:
-        "Erkundung, wie ein Docker-Compose-basiertes Multi-Server-Setup in Richtung Kubernetes migriert werden kann, mit Fokus auf Recovery, Reproduzierbarkeit und Wartbarkeit.",
+        "Migration einer Docker-Compose-basierten Multiserver-Architektur in einen Kubernetes-Cluster mit Fokus auf Recovery, Reproduzierbarkeit und Wartbarkeit.",
     },
     about: {
       eyebrow: "Über mich",
       title: "Softwareentwicklung mit praktischem Systemverständnis.",
       paragraphs: [
-        "Ich studiere Informatik an der FH Wiener Neustadt und habe praktische C#/.NET-Full-Stack-Erfahrung. Bei FOTEC habe ich an Business-Anwendungen mit .NET MAUI, ASP.NET Core, Blazor, EF Core und REST APIs gearbeitet.",
+        "Ich habe meinen Bachelor in Informatik an der FH Wiener Neustadt mit gutem Erfolg abgeschlossen und habe praktische C#/.NET-Full-Stack-Erfahrung. Bei FOTEC habe ich an Business-Anwendungen mit .NET MAUI, ASP.NET Core, Blazor, EF Core und REST APIs gearbeitet.",
         "Mein aktueller Fokus liegt stärker auf Linux, Docker, Kubernetes, verteilten Systemen und Plattform-Engineering. Meine Bachelorarbeit untersucht die Migration einer Docker-Compose-basierten Multi-Server-Architektur nach Kubernetes, mit Fokus auf Recovery, Reproduzierbarkeit und Wartbarkeit.",
         "Vor dem Informatikstudium habe ich mehrere Jahre als Koch und Küchenleiter gearbeitet. Dieser Hintergrund prägt weiterhin meinen Umgang mit Verantwortung, strukturierter Arbeit, operativem Denken und praktischer Problemlösung.",
       ],
@@ -313,14 +312,14 @@ export const portfolioContent = {
         {
           title: "Junior Developer",
           organization: "FOTEC",
-          period: "09/2024-03/2025",
+          period: "10/2024-03/2025",
           description:
-            "Teilzeitentwicklung von Business-Anwendungen mit .NET MAUI, ASP.NET Core, Blazor, EF Core, REST APIs, Git und Docker.",
+            "Teilzeitentwicklung von Business-Anwendungen mit .NET MAUI, ASP.NET Core, Blazor, EF Core, REST APIs und Git.",
         },
         {
           title: "Software Development Intern",
           organization: "FOTEC",
-          period: "07/2024",
+          period: "08/2024",
           description:
             "Python/Raspberry-Pi-Prototyp für kamerabasierte Qualitätsprüfung rotierender Produktverpackungen sowie GoPro-API-Integration im Fließbandkontext.",
         },
@@ -340,9 +339,9 @@ export const portfolioContent = {
         {
           degree: "B.Sc. Informatik",
           institution: "FH Wiener Neustadt",
-          period: "Voraussichtlich 07/2026",
+          period: "Abgeschlossen 07/2026",
           description:
-            "Lehrveranstaltungen und Projektarbeit in Programmierung, Softwarearchitektur, verteilten Systemen, Datenbanken, UX, Softwaretesting, IT-Security und IT-Betrieb.",
+            "Mit gutem Erfolg abgeschlossen. Lehrveranstaltungen und Projektarbeit in Programmierung, Softwarearchitektur, verteilten Systemen, Datenbanken, UX, Softwaretesting, IT-Security und IT-Betrieb.",
         },
         {
           degree: "M.Sc. Informatik - Software and Security Engineering",
@@ -362,7 +361,7 @@ export const portfolioContent = {
       eyebrow: "Kontakt",
       title: "Offen für Junior-Software-Engineering-Möglichkeiten.",
       description:
-        "Am besten erreichbar per E-Mail, GitHub oder LinkedIn. Standort: Niederösterreich, Österreich.",
+        "Am besten erreichbar per E-Mail, GitHub oder LinkedIn. Standort: Burgenland, Österreich.",
       button: "E-Mail an Lukas",
       links: {
         email: "E-Mail",
