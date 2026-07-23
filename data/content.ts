@@ -74,7 +74,7 @@ export const portfolioContent = {
       eyebrow: "About",
       title: "Software engineering with a practical systems mindset.",
       paragraphs: [
-        "I am a computer science graduate at FH Wiener Neustadt with practical C#/.NET full-stack experience. At FOTEC, I worked on business applications using .NET MAUI, ASP.NET Core, Blazor, EF Core and REST APIs.",
+        "I am a computer science graduate from FH Wiener Neustadt with practical C#/.NET full-stack experience. At FOTEC, I worked on business applications using .NET MAUI, ASP.NET Core, Blazor, EF Core and REST APIs.",
         "My current focus is moving deeper into Linux, Docker, Kubernetes, distributed systems and platform engineering. My bachelor thesis covered the migration of a Docker Compose based multi-server architecture to Kubernetes, with emphasis on recovery, reproducibility and maintainability.",
         "Before studying computer science, I worked for several years as a chef and kitchen lead. That background still shapes how I approach responsibility, structured work, operational thinking and practical problem solving.",
       ],
@@ -250,7 +250,7 @@ export const portfolioContent = {
       eyebrow: "Über mich",
       title: "Softwareentwicklung mit praktischem Systemverständnis.",
       paragraphs: [
-        "Ich habe meinen Bachelor in Informatik an der FH Wiener Neustadt mit gutem Erfolg abgeschlossen und habe praktische C#/.NET-Full-Stack-Erfahrung. Bei FOTEC habe ich an Business-Anwendungen mit .NET MAUI, ASP.NET Core, Blazor, EF Core und REST APIs gearbeitet.",
+        "Ich habe meinen Bachelor in Informatik an der FH Wiener Neustadt mit gutem Erfolg abgeschlossen und verfüge über praktische C#/.NET-Full-Stack-Erfahrung. Bei FOTEC habe ich an Business-Anwendungen mit .NET MAUI, ASP.NET Core, Blazor, EF Core und REST APIs gearbeitet.",
         "Mein aktueller Fokus liegt stärker auf Linux, Docker, Kubernetes, verteilten Systemen und Plattform-Engineering. Meine Bachelorarbeit behandelte die Migration einer Docker-Compose-basierten Multiserver-Architektur nach Kubernetes, mit Fokus auf Recovery, Reproduzierbarkeit und Wartbarkeit.",
         "Vor dem Informatikstudium habe ich mehrere Jahre als Koch und Küchenleiter gearbeitet. Dieser Hintergrund prägt weiterhin meinen Umgang mit Verantwortung, strukturierter Arbeit, operativem Denken und praktischer Problemlösung.",
       ],
