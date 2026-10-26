@@ -12,7 +12,8 @@
     "preview": "node scripts/serve-static.mjs",
     "prebuild": "npm run design:tokens",
     "styleguide:export": "node scripts/export-styleguide.mjs",
-    "postbuild": "npm run styleguide:export"
+    "postbuild": "npm run styleguide:export && npm run seo:check",
+    "seo:check": "node scripts/check-seo-export.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

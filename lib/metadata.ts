@@ -22,8 +22,7 @@ const keywords = [
 export function createPortfolioMetadata(locale: Locale): Metadata {
   const content = metadataContent[locale];
   const canonical = localeRoutes[locale];
-  const socialImage = locale === "de" ? "/de/opengraph-image" : "/opengraph-image";
-  const twitterImage = locale === "de" ? "/de/twitter-image" : "/twitter-image";
+  const socialImage = `/images/social-preview-${locale}.png`;
 
   return {
     metadataBase: new URL(siteUrl),
@@ -32,6 +31,10 @@ export function createPortfolioMetadata(locale: Locale): Metadata {
     applicationName: siteName,
     authors: [{ name: "Lukas Stumpfel" }],
     creator: "Lukas Stumpfel",
+    icons: {
+      icon: [{ url: "/favicon.png", sizes: "64x64", type: "image/png" }],
+      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    },
     alternates: {
       canonical,
       languages: {
@@ -52,6 +55,7 @@ export function createPortfolioMetadata(locale: Locale): Metadata {
       images: [
         {
           url: socialImage,
+          type: "image/png",
           width: 1200,
           height: 630,
           alt: content.socialImageAlt,
@@ -75,7 +79,7 @@ export function createPortfolioMetadata(locale: Locale): Metadata {
       description: content.description,
       images: [
         {
-          url: twitterImage,
+          url: socialImage,
           alt: content.socialImageAlt,
         },
       ],
