@@ -1,42 +1,34 @@
 import { profile } from "@/data/profile";
-import { Container } from "@/components/layout/Container";
 import { portfolioContent } from "@/data/content";
 import type { Locale } from "@/data/i18n";
 
-type FooterProps = {
-  locale: Locale;
-};
-
-export function Footer({ locale }: FooterProps) {
+export function Footer({ locale }: { locale: Locale }) {
   const { aria, footer } = portfolioContent[locale];
-
   return (
-    <footer className="border-t border-[color:var(--site-border)] bg-[var(--site-footer-bg)]">
-      <Container className="flex flex-col gap-3 py-8 text-sm text-[var(--site-subtle)] sm:flex-row sm:items-center sm:justify-between">
+    <footer className="site-footer">
+      <div className="footer-inner container">
         <p>
-          &copy; {new Date().getFullYear()} {profile.name}. {footer.built}
+          © {new Date().getFullYear()} {profile.name}. {footer.built}
         </p>
-        <div className="flex gap-4">
+        <div className="footer-links">
           <a
-            aria-label={aria.openGithub}
-            className="transition hover:text-[var(--site-heading)]"
             href={profile.github}
-            rel="noreferrer"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label={aria.openGithub}
           >
             GitHub
           </a>
           <a
-            aria-label={aria.openLinkedin}
-            className="transition hover:text-[var(--site-heading)]"
             href={profile.linkedin}
-            rel="noreferrer"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label={aria.openLinkedin}
           >
             LinkedIn
           </a>
         </div>
-      </Container>
+      </div>
     </footer>
   );
 }

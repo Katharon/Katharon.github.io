@@ -13,17 +13,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-theme="midnight"
-      data-theme-choice="system"
+      data-theme="dark"
+      data-theme-choice="dark"
       suppressHydrationWarning
-      className="h-full scroll-smooth antialiased"
+      className="h-full antialiased"
     >
       <head>
         <ThemeScript />
       </head>
-      <body className="flex min-h-full flex-col bg-[var(--site-bg)] text-[var(--site-text)]">
-        {children}
-      </body>
+      <body className="min-h-full">{children}</body>
     </html>
   );
 }

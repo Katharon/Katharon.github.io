@@ -56,7 +56,7 @@ export const portfolioContent = {
       },
       details: [
         { label: "Based in", valueKey: "location" },
-        { label: "Education", value: "B.Sc. Computer Science, FH Wiener Neustadt" },
+        { label: "Education", value: "BSc. Computer Science, FH Wiener Neustadt" },
         { label: "Background", value: "Operations background from kitchen leadership" },
       ],
       profileFile: "current-profile.md",
@@ -161,7 +161,7 @@ export const portfolioContent = {
       title: "Computer science foundation.",
       items: [
         {
-          degree: "B.Sc. Computer Science",
+          degree: "BSc. Computer Science",
           institution: "FH Wiener Neustadt",
           period: "Graduated 07/2026",
           description:
@@ -232,7 +232,7 @@ export const portfolioContent = {
       },
       details: [
         { label: "Standort", valueKey: "location" },
-        { label: "Ausbildung", value: "B.Sc. Informatik, FH Wiener Neustadt" },
+        { label: "Ausbildung", value: "BSc. Informatik, FH Wiener Neustadt" },
         { label: "Hintergrund", value: "Operativer Hintergrund aus Küchenleitung" },
       ],
       profileFile: "aktuelles-profil.md",
@@ -337,7 +337,7 @@ export const portfolioContent = {
       title: "Informatik-Fundament.",
       items: [
         {
-          degree: "B.Sc. Informatik",
+          degree: "BSc. Informatik",
           institution: "FH Wiener Neustadt",
           period: "Abgeschlossen 07/2026",
           description:

@@ -10,6 +10,7 @@ import { ProjectsSection } from "@/components/home/ProjectsSection";
 import { TechStackSection } from "@/components/home/TechStackSection";
 import type { Locale } from "@/data/i18n";
 import { getCvHref } from "@/lib/cv";
+import "./sections.css";
 
 type HomePageProps = {
   locale: Locale;
@@ -19,13 +20,13 @@ export function HomePage({ locale }: HomePageProps) {
   const cvHref = getCvHref();
 
   return (
-    <div className="flex min-h-screen flex-col overflow-x-hidden bg-[var(--site-bg)]">
+    <div className="site-shell">
       <Header locale={locale} />
-      <main className="flex-1">
+      <main id="main-content" tabIndex={-1} className="home-main">
         <HeroSection locale={locale} cvHref={cvHref} />
+        <ProjectsSection locale={locale} />
         <AboutSection locale={locale} />
         <FocusSection locale={locale} />
-        <ProjectsSection locale={locale} />
         <ExperienceSection locale={locale} />
         <EducationSection locale={locale} />
         <TechStackSection locale={locale} />

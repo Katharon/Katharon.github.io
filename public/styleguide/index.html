@@ -1,0 +1,1585 @@
+<!doctype html>
+<html lang="de" data-theme="dark" data-theme-choice="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <meta
+      name="description"
+      content="Interaktiver Blackline-Styleguide für das Portfolio von Lukas Stumpfel: Design-Tokens, Komponenten, responsive Regeln, Sprache, Themes und Zugänglichkeit."
+    />
+    <title>Blackline — Designsystem & UX-Referenz</title>
+    <script>
+      try {
+        var t = localStorage.getItem("blackline-styleguide-theme") || "dark";
+        if (!["dark", "light"].includes(t)) t = "dark";
+        document.documentElement.dataset.themeChoice = t;
+        document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+    <link rel="stylesheet" href="../design/tokens.css" />
+    <link rel="stylesheet" href="../design/primitives.css" />
+    <link rel="stylesheet" href="./styleguide.css" />
+    <script src="../design/tokens.js" defer></script>
+    <script src="./styleguide.js" defer></script>
+  </head>
+  <body>
+    <a class="guide-skip" href="#main">Zum Inhalt springen</a>
+    <aside class="guide-sidebar" data-theme="dark" aria-label="Styleguide-Navigation">
+      <a class="guide-brand" href="#overview"
+        ><span class="guide-brand__mark" aria-hidden="true">LS</span
+        ><span>Blackline<small>Portfolio Design System</small></span></a
+      >
+      <button
+        type="button"
+        class="guide-menu"
+        id="guide-menu"
+        aria-controls="guide-navigation"
+        aria-expanded="false"
+      >
+        Inhalt <span aria-hidden="true">☰</span>
+      </button>
+      <nav id="guide-navigation" class="guide-navigation" aria-label="Inhaltsverzeichnis">
+        <p class="guide-nav-label">Orientierung</p>
+        <a href="#overview">Gestalterische Richtung</a><a href="#themes">Themes & Sprache</a>
+        <p class="guide-nav-label">Grundlagen</p>
+        <a href="#tokens">Farben & Token</a><a href="#typography">Typografie</a
+        ><a href="#spacing">Abstände & Geometrie</a><a href="#layout">Layout & Breakpoints</a>
+        <p class="guide-nav-label">Bausteine</p>
+        <a href="#actions">Buttons, Links & Zustände</a
+        ><a href="#navigation">Header & mobile Navigation</a><a href="#hero">Hero & Bildsprache</a
+        ><a href="#projects">Projekte & Vorschauen</a
+        ><a href="#content">Über mich, Fokus & Lebenslauf</a
+        ><a href="#stack-contact">Stack, Kontakt & Footer</a
+        ><a href="#contracts">Komponentenverträge</a>
+        <p class="guide-nav-label">Anwendung</p>
+        <a href="#accessibility">Zugänglichkeit & Kontrast</a
+        ><a href="#writing">Inhalt & Konsistenz</a><a href="#implementation">Umsetzung & Pflege</a>
+      </nav>
+      <div class="guide-sidebar__foot">
+        <span class="badge">Lebende Referenz</span>
+        <p>Gleiche Token. Gleiche Primitives.<br />Website und Dokumentation.</p>
+        <a href="../design/tokens.json" download>Token als JSON ↓</a
+        ><small>Stand: 26. Oktober 2026</small>
+      </div>
+    </aside>
+    <div class="guide-main">
+      <header class="guide-toolbar">
+        <p>UX / UI · Komponentenreferenz</p>
+        <div class="guide-theme-control">
+          <label for="theme-choice">Ansicht</label
+          ><select id="theme-choice" name="theme">
+            <option value="dark" selected>Dunkel</option>
+            <option value="light">Hell</option>
+          </select>
+        </div>
+      </header>
+      <main id="main" class="guide-document">
+        <section class="guide-section guide-intro" id="overview" aria-labelledby="overview-title">
+          <div class="guide-intro__copy">
+            <p class="eyebrow">Blackline / Lukas Stumpfel</p>
+            <h1 id="overview-title">Klar gebaut.<br />Bis ins Detail.</h1>
+            <p class="guide-lead">
+              Ein gemeinsames Designsystem für ein persönliches Software-Engineering-Portfolio — und
+              eine konkrete Arbeitsreferenz für jede weitere Änderung.
+            </p>
+            <p>
+              Anthrazit, ein warmer Akzent und eine ruhige Bildkomposition geben der Seite
+              Charakter. Offene Projektzeilen, lesbare Inhalte und klare Wege zu GitHub und Kontakt
+              tragen die Gestaltung.
+            </p>
+            <div class="guide-inline-meta">
+              <span>Geist / Geist Mono</span><span>DE + EN</span
+              ><span>Statisch / GitHub Pages</span>
+            </div>
+          </div>
+          <figure class="guide-intro__image">
+            <img
+              data-theme-image
+              data-theme-src-dark="../images/hero-blackline.webp"
+              data-theme-src-light="../images/hero-light.webp"
+              src="../images/hero-blackline.webp"
+              alt="Abstraktes Bildmotiv des aktuellen hellen oder dunklen Themes."
+              width="1600"
+              height="1000"
+            />
+            <figcaption>
+              Bild als gezielter Blickfang.<br />Inhalte und Bedienung bleiben klar.
+            </figcaption>
+          </figure>
+          <div class="guide-principles">
+            <article>
+              <h2>Persönlich</h2>
+              <p>
+                Eigener Name, nachvollziehbarer Werdegang, echte Projekte. Kein erfundener
+                Erfolgsnachweis.
+              </p>
+            </article>
+            <article>
+              <h2>Präzise</h2>
+              <p>
+                Ein Akzent, wenige Radien, definierte Hierarchien. Jede Farbe hat eine feste
+                Aufgabe.
+              </p>
+            </article>
+            <article>
+              <h2>Bedienbar</h2>
+              <p>
+                Klare Bezeichnungen, sichtbarer Fokus und mindestens 44 Pixel große Ziele für
+                Bedienelemente.
+              </p>
+            </article>
+            <article>
+              <h2>Wiederverwendbar</h2>
+              <p>
+                Semantische Token und gemeinsame Grundbausteine statt einzelner fest codierter
+                Stilwerte.
+              </p>
+            </article>
+          </div>
+          <div class="guide-callout">
+            <strong>Was diese Referenz abdeckt</strong>
+            <p>
+              Die umgesetzte Portfolio-Gestaltung samt allen vorhandenen Abschnitten und
+              Bedienelementen. Interaktive Demonstrationen sind ausdrücklich als Beispiele markiert.
+              Kontaktformulare, Konten, Bezahlung, Dashboards und neue Produktfunktionen gehören
+              nicht zum Portfolio-Umfang.
+            </p>
+          </div>
+        </section>
+
+        <section class="guide-section" id="themes" aria-labelledby="themes-title">
+          <div class="guide-section-head">
+            <p class="eyebrow">Farbsystem & Lokalisierung</p>
+            <h2 class="section-heading" id="themes-title">Eine Gestaltung. Hell und Dunkel.</h2>
+            <p>
+              „Dunkel“ ist die erste Ansicht ohne gespeicherte Präferenz. „Hell“ verwendet warme
+              helle Flächen, dunkle Schrift und das orangefarbene Motiv von Pawel Czerwinski.
+              „Dunkel“ zeigt das schwarze Motiv von Milad Fakurian. Inhalt, Layout und
+              Informationsrang bleiben gleich.
+            </p>
+          </div>
+          <p class="guide-live-line" id="theme-status" role="status">Aktive Ansicht: Dunkel</p>
+          <div class="guide-theme-grid">
+            <article class="guide-theme-sample" data-theme="dark">
+              <span class="eyebrow">Dunkel</span>
+              <h3>Software mit System.</h3>
+              <p>Anthrazit und ein warmer Lichtakzent.</p>
+              <span class="badge">C# / .NET</span>
+            </article>
+            <article class="guide-theme-sample" data-theme="light">
+              <span class="eyebrow">Hell</span>
+              <h3>Software mit System.</h3>
+              <p>Ruhige helle Flächen mit dunkler Schrift.</p>
+              <span class="badge">C# / .NET</span>
+            </article>
+          </div>
+          <div class="guide-two-column guide-prose">
+            <div>
+              <h3>Theme-Verhalten</h3>
+              <ul>
+                <li>
+                  Die echte Auswahl wird als
+                  <code>dark | light</code> gespeichert. Es gibt genau zwei konkrete Themes.
+                </li>
+                <li>
+                  <code>data-theme-choice</code> hält die Auswahl, <code>data-theme</code> die
+                  dargestellte Palette.
+                </li>
+                <li>
+                  Die Auswahl bleibt bestehen und wird nicht von der Betriebssystem-Einstellung
+                  überschrieben.
+                </li>
+                <li>
+                  Die Website nutzt <code>portfolio-theme</code>. Diese Referenz speichert getrennt
+                  unter <code>blackline-styleguide-theme</code>.
+                </li>
+                <li>
+                  Falls Speicherung nicht möglich ist, bleibt die Auswahl für die laufende Ansicht
+                  bedienbar.
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3>Sprach-Verhalten</h3>
+              <ul>
+                <li>Englisch liegt unter <code>/</code>, Deutsch unter <code>/de/</code>.</li>
+                <li>
+                  DE und EN sind echte Links mit <code>hreflang</code>; die aktuelle Sprache trägt
+                  <code>aria-current="page"</code>.
+                </li>
+                <li>
+                  Name, Projektbezeichnungen und Technologien werden nicht künstlich übersetzt.
+                </li>
+                <li>
+                  Überschriften, Beschreibungen, Bildalternativen und zugängliche Bezeichnungen
+                  werden gemeinsam gepflegt.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="guide-sample" id="language-preview">
+            <div class="guide-sample-label">
+              Interaktives Sprachbeispiel · nur diese Vorschau wechselt
+            </div>
+            <div class="guide-language-demo">
+              <nav class="demo-language" aria-label="Sprache der Beispielvorschau">
+                <a href="#language-preview" hreflang="de" data-demo-locale="de" aria-current="page"
+                  >DE</a
+                ><a href="#language-preview" hreflang="en" data-demo-locale="en">EN</a>
+              </nav>
+              <div id="language-copy" lang="de">
+                <p class="eyebrow" id="language-eyebrow">Ausgewählte Projekte</p>
+                <h3 id="language-title">Portfolio- und Studienprojekte mit Systembezug.</h3>
+                <p id="language-body">
+                  Ausgewählte Arbeiten zu Backend, Desktop, verteilten Systemen und Security-nahen
+                  Themen.
+                </p>
+                <a class="text-link" href="#projects" id="language-link"
+                  >Projekte ansehen <span aria-hidden="true">→</span></a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="guide-section" id="tokens" aria-labelledby="tokens-title">
+          <div class="guide-section-head">
+            <p class="eyebrow">Gemeinsame Quelle</p>
+            <h2 class="section-heading" id="tokens-title">Farbe bekommt eine Aufgabe.</h2>
+            <p>
+              In Komponenten immer die semantische CSS-Variable einsetzen. Rohfarben sind die
+              Palette hinter dem System; sie werden nicht direkt in neue Komponenten kopiert. Die
+              angezeigten Werte reagieren auf das ausgewählte Theme.
+            </p>
+          </div>
+          <div class="guide-token-tools">
+            <div>
+              <label for="token-search">Token suchen</label
+              ><input
+                type="search"
+                id="token-search"
+                placeholder="z. B. accent, spacing oder --color-text"
+                autocomplete="off"
+              />
+            </div>
+            <p id="token-source-status">Tokenquelle wird geladen.</p>
+          </div>
+          <p class="guide-caption">
+            Ein Klick auf „Variable kopieren“ kopiert den vollständigen CSS-Ausdruck, zum Beispiel
+            <code>var(--color-accent)</code>.
+          </p>
+          <div id="semantic-colors" class="guide-color-grid"></div>
+          <h3 class="guide-subheading">Alle semantischen CSS-Token</h3>
+          <p>
+            Die Farbrollen beschreiben die Bedeutung. Schrift, Maße und Bewegung ergänzen das
+            visuelle Vokabular. Werte werden aus der eingebundenen Token-CSS gelesen.
+          </p>
+          <div
+            class="guide-table-scroll"
+            tabindex="0"
+            role="region"
+            aria-label="Semantische Designtoken"
+          >
+            <table>
+              <caption>
+                CSS-Variablen mit aktuellem Wert und Verwendung
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Variable</th>
+                  <th scope="col">Aktueller Wert</th>
+                  <th scope="col">Verwendung</th>
+                  <th scope="col">Kopieren</th>
+                </tr>
+              </thead>
+              <tbody id="semantic-token-rows"></tbody>
+            </table>
+          </div>
+          <details class="guide-details">
+            <summary>Rohpalette und generierte Tokenquelle ansehen</summary>
+            <p>
+              Diese Werte werden aus <code>../design/tokens.js</code> gelesen. Dieselbe Quelle ist
+              als <a href="../design/tokens.json" download>tokens.json</a> verfügbar. Der Pfad
+              bezeichnet die Position in den Daten; nur ausdrücklich angegebene CSS-Variablen sind
+              öffentliche Schnittstellen.
+            </p>
+            <div
+              class="guide-table-scroll"
+              tabindex="0"
+              role="region"
+              aria-label="Rohwerte der Tokenquelle"
+            >
+              <table>
+                <caption>
+                  Rohwerte und Datenpfade der gemeinsamen Tokenquelle
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Pfad / Name</th>
+                    <th scope="col">Wert</th>
+                  </tr>
+                </thead>
+                <tbody id="raw-token-rows"></tbody>
+              </table>
+            </div>
+          </details>
+          <p id="token-search-status" class="guide-caption" role="status"></p>
+        </section>
+
+        <section class="guide-section" id="typography" aria-labelledby="typography-title">
+          <div class="guide-section-head">
+            <p class="eyebrow">Lesen vor Dekoration</p>
+            <h2 class="section-heading" id="typography-title">
+              Geist führt. Geist Mono ordnet ein.
+            </h2>
+            <p>
+              Geist trägt Fließtext, Navigation und Überschriften. Geist Mono ist für kurze
+              Metadaten, Zeiträume und Technologiebezeichnungen reserviert. Beide Schriften liegen
+              lokal unter <code>/fonts/</code>; es wird kein externer Fontdienst geladen.
+            </p>
+          </div>
+          <div class="guide-font-specimens">
+            <article>
+              <p class="guide-caption">--font-family-sans / Geist</p>
+              <p class="guide-font-large">Software mit System.<br />Aa Bb Cc 0123456789</p>
+            </article>
+            <article>
+              <p class="guide-caption">--font-family-mono / Geist Mono</p>
+              <p class="guide-font-mono">
+                C# / .NET / Linux<br />Docker · Kubernetes<br />09/2026 — heute
+              </p>
+            </article>
+          </div>
+          <div id="type-scale" class="guide-type-scale"></div>
+          <div class="guide-two-column guide-prose">
+            <div>
+              <h3>Hierarchie</h3>
+              <ul>
+                <li>Eine <code>h1</code> pro Sprachseite: der Name im Hero.</li>
+                <li>
+                  Jeder Hauptabschnitt beginnt mit <code>h2</code>; Projekttitel und Unterthemen
+                  sind <code>h3</code>.
+                </li>
+                <li>Eyebrows sind kurze Kategorien, keine zusätzliche Überschriftenebene.</li>
+                <li>
+                  Abschnittsüberschriften erhalten keine dekorativen Nummern oder angehängten
+                  Striche.
+                </li>
+                <li>
+                  <code>--line-height-heading</code> für Titel; <code>--line-height-body</code> für
+                  Text; <code>--line-height-label</code> für kurze Labels.
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3>Lesbarkeit</h3>
+              <ul>
+                <li>Text bleibt im DOM und ist skalierbar; keine wichtigen Texte als Bild.</li>
+                <li>
+                  Fließtext misst höchstens <code>--size-prose</code> und erhält klare
+                  Absatzabstände.
+                </li>
+                <li>Gewichte: 400 regulär, 500 medium, 600 semibold, 700 bold.</li>
+                <li>
+                  Die Desktop-Hero-Größe wird auf kleinen Bildschirmen reduziert; keine feste
+                  Zeilenhöhe in Pixeln.
+                </li>
+                <li>
+                  Technologien dürfen umbrechen. Ganze E-Mail-Adressen nutzen gezieltes
+                  <code>overflow-wrap</code>.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="guide-section" id="spacing" aria-labelledby="spacing-title">
+          <div class="guide-section-head">
+            <p class="eyebrow">Rhythmus & Maße</p>
+            <h2 class="section-heading" id="spacing-title">
+              Abstände aus einer gemeinsamen Skala.
+            </h2>
+            <p>
+              Die Basis ist ein Viertel-Rem. Eng verwandte Inhalte stehen näher beieinander als
+              eigenständige Themen. Große Freiräume strukturieren die Seite; sie werden nicht mit
+              zusätzlichen Karten gefüllt.
+            </p>
+          </div>
+          <div id="space-scale" class="guide-space-scale"></div>
+          <div class="guide-geometry-grid">
+            <article class="guide-geometry" style="border-radius: var(--radius-small)">
+              <code>--radius-small</code><strong>0.25rem</strong>
+              <p>Labels, feine Kontrollflächen.</p>
+            </article>
+            <article class="guide-geometry" style="border-radius: var(--radius-medium)">
+              <code>--radius-medium</code><strong>0.5rem</strong>
+              <p>Buttons und kompakte Gruppen.</p>
+            </article>
+            <article class="guide-geometry" style="border-radius: var(--radius-large)">
+              <code>--radius-large</code><strong>0.75rem</strong>
+              <p>Bildrahmen und größere Flächen.</p>
+            </article>
+          </div>
+          <div class="guide-two-column guide-prose">
+            <div>
+              <h3>Größen</h3>
+              <dl class="guide-definition">
+                <dt>Interaktionsziel</dt>
+                <dd>
+                  <code>--size-touch: 2.75rem</code> · mindestens 44 × 44 CSS-Pixel bei
+                  Standard-Schriftgröße.
+                </dd>
+                <dt>Icon</dt>
+                <dd>
+                  <code>--size-icon: 1.125rem</code> · einheitliche Strichstärke, dekorative Icons
+                  mit <code>aria-hidden</code>.
+                </dd>
+                <dt>Inhaltsbreite</dt>
+                <dd><code>--size-content-max: 76rem</code> · zentraler Seitencontainer.</dd>
+                <dt>Textbreite</dt>
+                <dd><code>--size-prose: 42rem</code> · ausführliche Absätze.</dd>
+                <dt>Header</dt>
+                <dd>
+                  <code>--size-header: 4.75rem</code> · Grundhöhe für Ausrichtung und Ankerabstand.
+                </dd>
+              </dl>
+            </div>
+            <div>
+              <h3>Flächen & Bewegung</h3>
+              <p>
+                Eine Karte nutzt <code>--color-surface</code>, eine feine Kontur und den
+                zurückhaltenden <code>--shadow-card</code>. Schatten sind keine alleinige
+                Zustandskennzeichnung.
+              </p>
+              <div class="card guide-shadow-demo">Oberfläche mit definiertem Schatten.</div>
+              <p>
+                <code>--motion-fast: 150ms</code> für kleine Zustandsänderungen,
+                <code>--motion-normal: 240ms</code> für ruhige Übergänge. Bei reduzierter Bewegung
+                entfallen dekorative Animation und sanftes Scrollen.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="guide-section" id="layout" aria-labelledby="layout-title">
+          <div class="guide-section-head">
+            <p class="eyebrow">Responsive Verhalten</p>
+            <h2 class="section-heading" id="layout-title">Ein Inhalt. Ein sinnvoller Lesefluss.</h2>
+            <p>
+              Mobile erhält dieselben Inhalte und Aktionen. Die Reihenfolge im Dokument bestimmt den
+              Lesefluss; CSS verändert nur die passende Anordnung. Inhalte werden nicht zur
+              vermeintlichen Vereinfachung versteckt.
+            </p>
+          </div>
+          <div class="guide-layout-spec">
+            <div class="guide-layout-spec__outer">
+              <span>Viewport / flexible Außenränder</span>
+              <div class="guide-layout-spec__inner">
+                <span>Container · max. 76rem</span>
+                <div>Prose · max. 42rem</div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="guide-table-scroll"
+            tabindex="0"
+            role="region"
+            aria-label="Responsive Layoutregeln"
+          >
+            <table>
+              <caption>
+                Layout nach verfügbarem Platz
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Bereich</th>
+                  <th scope="col">Unter 40rem / 640px</th>
+                  <th scope="col">Ab 40rem / 640px</th>
+                  <th scope="col">Ab 64rem / 1024px</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Header</th>
+                  <td>Marke, Sprache, Theme und natives aufklappbares Menü.</td>
+                  <td>Weiterhin mobiles Disclosure-Menü; mehr Platz zwischen den Kontrollen.</td>
+                  <td>Horizontale Hauptnavigation, mobiles Menü ausgeblendet.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Hero</th>
+                  <td>Text und Aktionen führen; art-direktierter Bildausschnitt.</td>
+                  <td>Mehr Raum für Überschrift und Aktionszeile.</td>
+                  <td>Große Komposition aus Typografie und abstraktem Bild.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Projektzeile</th>
+                  <td>
+                    Vorschau, Name, Beschreibung, Technologien und Repository-Link in einer Spalte.
+                  </td>
+                  <td>Bild und Text nebeneinander, wenn beide lesbar bleiben.</td>
+                  <td>Klare Bild-/Textverteilung und großzügige vertikale Trenner.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Über mich / Lebenslauf</th>
+                  <td>Einspaltig; Datum vor der zugehörigen Station.</td>
+                  <td>Datum und Inhalt können nebeneinander stehen.</td>
+                  <td>Abschnittsüberschrift neben der Inhaltskolumne.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Stack / Fokus</th>
+                  <td>Gruppen untereinander, Badges umbrechend.</td>
+                  <td>Gruppen in einem regelmäßigen Raster.</td>
+                  <td>Mehr Spalten, keine schmalen Textschläuche.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Kontakt / Footer</th>
+                  <td>Kontaktwege untereinander; lange Werte umbrechen.</td>
+                  <td>Mehr Platz und sinnvolle Umbrüche.</td>
+                  <td>Offener Abschluss mit Text und Kontaktwegen nebeneinander.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="guide-callout">
+            <strong>Prüfflächen</strong>
+            <p>
+              320, 390, 768, 1024 und 1440 Pixel; außerdem 200 % Zoom, lange deutsche Labels,
+              Tastatur und reduzierte Bewegung. Seitliches Scrollen gehört nur in ausdrücklich
+              gekennzeichnete Code- oder Datentabellen dieser Dokumentation.
+            </p>
+          </div>
+        </section>
+
+        <section class="guide-section" id="actions" aria-labelledby="actions-title">
+          <div class="guide-section-head">
+            <p class="eyebrow">Gemeinsame Primitives</p>
+            <h2 class="section-heading" id="actions-title">Die Aktion bestimmt das Element.</h2>
+            <p>
+              Ein Ziel wird über einen Link geöffnet. Eine lokale Aktion wird über einen Button
+              ausgelöst. Primär bedeutet visuell hervorgehoben: eine warme Kontur im
+              Ausgangszustand, eine gefüllte Akzentfläche bei Hover.
+            </p>
+          </div>
+          <div class="guide-sample">
+            <div class="guide-sample-label">Echte interaktive Grundbausteine</div>
+            <div class="guide-action-row">
+              <a class="button button--primary" href="#projects"
+                >Projekte ansehen <span aria-hidden="true">→</span></a
+              ><a
+                class="button button--secondary"
+                href="https://github.com/Katharon"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Lukas Stumpfel auf GitHub öffnen, neuer Tab"
+                >GitHub <span aria-hidden="true">↗</span></a
+              ><button class="button button--ghost" type="button" id="example-action">
+                Beispielaktion</button
+              ><a class="text-link" href="#contracts"
+                >Komponenten ansehen <span aria-hidden="true">→</span></a
+              >
+            </div>
+            <p class="guide-caption" id="example-action-status" role="status">
+              „Beispielaktion“ demonstriert einen lokalen Button ohne externe Funktion.
+            </p>
+          </div>
+          <div class="guide-state-grid">
+            <article>
+              <span class="guide-state-label">Standard</span
+              ><button type="button" class="button button--primary">
+                Projekte ansehen <span aria-hidden="true">→</span>
+              </button>
+              <p>Kontur und Text: Akzent. Fläche: transparent.</p>
+            </article>
+            <article>
+              <span class="guide-state-label">Hover · simuliert</span
+              ><button type="button" class="button button--primary example-hover">
+                Projekte ansehen <span aria-hidden="true">→</span>
+              </button>
+              <p>Akzentfläche und dunkler Text. Ziel bleibt unverändert.</p>
+            </article>
+            <article>
+              <span class="guide-state-label">Focus-visible · simuliert</span
+              ><button type="button" class="button button--primary example-focus">
+                Projekte ansehen <span aria-hidden="true">→</span>
+              </button>
+              <p>Abgesetzte, sichtbare Fokuslinie. Kein Layoutsprung.</p>
+            </article>
+            <article>
+              <span class="guide-state-label">Aktiv / gedrückt · simuliert</span
+              ><button type="button" class="button button--primary example-active">
+                Projekte ansehen <span aria-hidden="true">→</span>
+              </button>
+              <p>Kurze gedrückte Rückmeldung während der Aktion.</p>
+            </article>
+            <article>
+              <span class="guide-state-label">Disabled · Designbeispiel</span
+              ><button type="button" class="button button--secondary" disabled>
+                Nicht verfügbar
+              </button>
+              <p>
+                Nativer deaktivierter Button, nicht fokussierbar. Kein aktueller Website-Workflow.
+              </p>
+            </article>
+            <article>
+              <span class="guide-state-label">Loading · Designbeispiel</span
+              ><button type="button" class="button button--secondary" disabled aria-busy="true">
+                <span class="guide-loading-dot" aria-hidden="true"></span> Wird geladen…
+              </button>
+              <p>Nur Zustandsreferenz. Das statische Portfolio verspricht keine Ladefunktion.</p>
+            </article>
+          </div>
+          <div class="guide-two-column guide-prose">
+            <div>
+              <h3>Buttons & Icon-Links</h3>
+              <p>
+                <code>.button</code> definiert Größe, Abstände, Schrift und Fokus.
+                <code>.button--primary</code>, <code>--secondary</code> und
+                <code>--ghost</code> bestimmen die Hierarchie. Ein Icon unterstützt die Bezeichnung
+                und ersetzt sie nicht ohne zugänglichen Namen.
+              </p>
+              <div class="guide-action-row">
+                <button
+                  class="button button--secondary guide-icon-button"
+                  type="button"
+                  aria-label="Beispiel: Menü öffnen"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 7h16M4 12h16M4 17h16" />
+                  </svg></button
+                ><a class="button button--secondary" href="../cv/Lebenslauf.pdf" download
+                  >Lebenslauf herunterladen <span aria-hidden="true">↓</span></a
+                >
+              </div>
+              <p class="guide-caption">
+                Ein Lebenslauf-Link wird auf der Website nur ausgegeben, wenn die Datei vorhanden
+                ist.
+              </p>
+            </div>
+            <div>
+              <h3>Badges & Textlinks</h3>
+              <div class="guide-action-row">
+                <span class="badge">ASP.NET Core</span><span class="badge">Studienprojekt</span
+                ><a class="text-link" href="#writing"
+                  >Textregeln <span aria-hidden="true">→</span></a
+                >
+              </div>
+              <p>
+                Ein Badge ist ein nicht interaktives Label: kleine rechteckige Form, ruhige Kontur,
+                kein Pointer-Cursor. Textlinks bleiben durch Wortlaut und Unterstreichung oder Pfeil
+                erkennbar. Externe Ziele erhalten einen verständlichen Namen; Mail-Links öffnen das
+                Mailprogramm.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="guide-section" id="navigation" aria-labelledby="navigation-title">
+          <div class="guide-section-head">
+            <p class="eyebrow">Orientierung</p>
+            <h2 class="section-heading" id="navigation-title">Der Header hält Wege kurz.</h2>
+            <p>
+              Die Marke führt zum Anfang. Fünf Anker führen zu Über mich, Projekten, Erfahrung,
+              Stack und Kontakt. Sprach- und Theme-Auswahl sind beschriftete eigenständige
+              Bedienelemente; sie werden nicht als dekorative Icons versteckt.
+            </p>
+          </div>
+          <div class="guide-sample guide-sample--flush">
+            <div class="guide-sample-label">Desktop-Anatomie · verkleinerte Breite</div>
+            <div class="demo-header">
+              <a class="demo-brand" href="#overview"
+                ><span aria-hidden="true">LS</span> Lukas Stumpfel</a
+              >
+              <nav aria-label="Desktop-Navigation im Beispiel">
+                <a href="#content">Über mich</a><a href="#projects">Projekte</a
+                ><a href="#content">Erfahrung</a><a href="#stack-contact">Stack</a
+                ><a href="#stack-contact">Kontakt</a>
+              </nav>
+              <span class="demo-header__locale">DE / EN</span>
+            </div>
+          </div>
+          <div class="guide-two-column">
+            <div class="guide-mobile-frame">
+              <div class="demo-mobile-header">
+                <a class="demo-brand" href="#navigation"
+                  ><span aria-hidden="true">LS</span><span>Lukas Stumpfel</span></a
+                >
+                <details class="demo-mobile-disclosure" id="demo-disclosure">
+                  <summary
+                    class="button button--ghost guide-icon-button"
+                    id="demo-menu"
+                    aria-label="Mobile Beispielnavigation"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 7h16M4 12h16M4 17h16" />
+                    </svg>
+                  </summary>
+                  <nav
+                    id="demo-mobile-nav"
+                    class="demo-mobile-nav"
+                    aria-label="Mobile Beispielnavigation"
+                  >
+                    <a href="#content">Über mich</a><a href="#projects">Projekte</a
+                    ><a href="#content">Erfahrung</a><a href="#stack-contact">Stack</a
+                    ><a href="#stack-contact">Kontakt</a>
+                  </nav>
+                </details>
+              </div>
+              <div class="demo-mobile-body">
+                <span class="eyebrow">Interaktives Menübeispiel</span>
+                <h3>Klarer Zugang.<br />Auch auf Mobile.</h3>
+                <p>Menü öffnen, per Tab durchgehen und mit Escape schließen.</p>
+              </div>
+            </div>
+            <div class="guide-prose">
+              <h3>Natives Disclosure</h3>
+              <ul>
+                <li>
+                  <code>details</code> und <code>summary</code> liefern einen bedienbaren
+                  offenen/geschlossenen Zustand auch ohne JavaScript.
+                </li>
+                <li>
+                  Der Browser vermittelt den Zustand nativ; geschlossener Menüinhalt ist nicht
+                  fokussierbar.
+                </li>
+                <li>Escape schließt das Menü und bringt den Fokus zum Auslöser zurück.</li>
+                <li>
+                  Ankerwahl und Klick außerhalb schließen die Navigation; der Anker erhält den Fokus
+                  und bleibt unter dem Header sichtbar.
+                </li>
+                <li>Auf der Website schließt ein Wechsel auf mindestens 64rem das mobile Menü.</li>
+                <li>Kein Hover-Zwang. Alle Ziele sind per Touch und Tastatur erreichbar.</li>
+                <li>Ein sichtbarer Skip-Link führt direkt zum Hauptinhalt.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="guide-section" id="hero" aria-labelledby="hero-title">
+          <div class="guide-section-head">
+            <p class="eyebrow">Einstieg & Bildsprache</p>
+            <h2 class="section-heading" id="hero-title">
+              Der Name führt. Das Bild gibt Atmosphäre.
+            </h2>
+            <p>
+              Das abstrakte Blackline-Motiv ist der visuelle Schwerpunkt. Die Überschrift,
+              Positionierung und Hauptaktion bleiben echte, eigenständige Inhalte. Keine zusätzliche
+              Stockfoto-Sammlung pro Abschnitt und keine erfundenen Interface-Renderings.
+            </p>
+          </div>
+          <div class="guide-sample guide-sample--flush">
+            <div class="guide-sample-label">Hero-Komposition · Inhalt als echter Text</div>
+            <div class="demo-hero">
+              <div class="demo-hero__copy">
+                <p class="eyebrow">Junior Software Engineer</p>
+                <h3>Lukas<br />Stumpfel<span>.</span></h3>
+                <p>C#/.NET, Linux und Systeme, die sich nachvollziehen lassen.</p>
+                <a class="button button--primary" href="#projects"
+                  >Projekte ansehen <span aria-hidden="true">→</span></a
+                >
+                <p class="demo-hero__meta">
+                  Bad Sauerbrunn, Österreich<br />C# / .NET / Docker / Kubernetes
+                </p>
+              </div>
+              <img
+                data-theme-image
+                data-theme-src-dark="../images/hero-blackline.webp"
+                data-theme-src-light="../images/hero-light.webp"
+                src="../images/hero-blackline.webp"
+                width="1600"
+                height="1000"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="guide-sample guide-sample--flush">
+            <div class="guide-sample-label">
+              Profilpanel · vorhandene Zusatzinhalte unter dem Hero
+            </div>
+            <div class="demo-profile-panel">
+              <div>
+                <code>aktuelles-profil.md</code>
+                <div class="guide-badges">
+                  <span class="badge">.NET</span><span class="badge">Linux</span
+                  ><span class="badge">K8s</span>
+                </div>
+              </div>
+              <div>
+                <h3>Aktueller Fokus</h3>
+                <ul>
+                  <li>C#/.NET-Anwendungsentwicklung</li>
+                  <li>Grundlagen in Linux, Docker und Kubernetes</li>
+                  <li>Verteilte Systeme und Architekturdenken</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Bachelorarbeit</h3>
+                <p>
+                  Migration einer Docker-Compose-basierten Multiserver-Architektur in einen
+                  Kubernetes-Cluster mit Fokus auf Recovery, Reproduzierbarkeit und Wartbarkeit.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="guide-two-column guide-prose">
+            <div>
+              <h3>Bildregeln</h3>
+              <ul>
+                <li>
+                  <code>hero-blackline.webp</code> (Dunkel) und <code>hero-light.webp</code> (Hell)
+                  werden lokal ausgeliefert. Die Website wählt das Motiv über CSS; nur das sichtbare
+                  Motiv wird geladen.
+                </li>
+                <li>Das Motiv wird art-direktiert beschnitten, nicht verzerrt.</li>
+                <li>
+                  Reine Stimmung ist dekorativ: <code>alt=""</code>. Aussagekräftige
+                  Projektvorschauen erhalten konkrete Alternativtexte.
+                </li>
+                <li>
+                  Bild und Schrift bilden getrennte Ebenen. Text über stark wechselnden
+                  Bildbereichen braucht einen belastbaren Hintergrund.
+                </li>
+                <li>Vorgegebene Bildmaße oder ein Seitenverhältnis verhindern Layoutsprünge.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Inhaltsregeln</h3>
+              <ul>
+                <li>Der Name ist die H1; der Rollenhinweis ist kurz und glaubwürdig.</li>
+                <li>
+                  Ein primärer Weg: Projekte ansehen. GitHub, LinkedIn, E-Mail und verfügbarer
+                  Lebenslauf bleiben erreichbar.
+                </li>
+                <li>
+                  Standort und fachliche Ausrichtung ergänzen den Einstieg; kein überladener
+                  Technik-Kartenstapel.
+                </li>
+                <li>
+                  Das anschließende Profilpanel erhält Dateibezeichnung, aktuellen Fokus und
+                  Bachelorarbeit aus dem gelieferten Projekt.
+                </li>
+                <li>
+                  Mobile: klare Schriftgröße, fließende Aktionszeilen und ein auf 28rem Höhe
+                  begrenzter Bildausschnitt. Längere Inhalte vergrößern die Textfläche, ohne das
+                  Motiv aufzuziehen.
+                </li>
+                <li>
+                  Hero-Bild und Hero-Farbrollen wechseln gemeinsam: Dunkel mit heller Schrift und
+                  schwarzem Motiv, Hell mit dunkler Schrift, warmer Papierfläche und orangefarbenem
+                  Motiv. Overlays schützen den Lesebereich.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="guide-section" id="projects" aria-labelledby="projects-title">
+          <div class="guide-section-head">
+            <p class="eyebrow">Arbeit sichtbar machen</p>
+            <h2 class="section-heading" id="projects-title">
+              Projektzeilen statt austauschbarer Karten.
+            </h2>
+            <p>
+              Jedes Projekt zeigt Name, ehrliche Einordnung, verständliche Beschreibung, den
+              fachlichen Lern- oder Architekturbezug, Technologien und einen klaren Link zum
+              Repository. Eine vorhandene echte Vorschau ergänzt den Inhalt.
+            </p>
+          </div>
+          <div class="guide-sample">
+            <div class="guide-sample-label">
+              NodeControl · echte lokale Vorschau / Fallback umschaltbar
+            </div>
+            <article class="demo-project">
+              <a
+                class="demo-project__visual"
+                href="https://github.com/Katharon/NodeControl"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="NodeControl auf GitHub öffnen, neuer Tab"
+                ><img
+                  id="project-screenshot"
+                  src="../images/nodecontrol.webp"
+                  alt="Projektvorschau der NodeControl-Oberfläche für selbst gehostete Infrastrukturautomatisierung."
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                />
+                <div id="project-fallback" class="demo-fallback" hidden>
+                  <span class="eyebrow">Projektvorschau</span><strong>NodeControl</strong
+                  ><span>Plattform-Engineering</span
+                  ><span class="guide-caption">Keine erfundene Oberfläche</span>
+                </div></a
+              >
+              <div class="demo-project__copy">
+                <span class="eyebrow">Plattform-Engineering</span>
+                <h3>NodeControl</h3>
+                <p>
+                  Portfolio-Projekt zur Erkundung selbst gehosteter Infrastrukturautomatisierung mit
+                  kundenbezogenen Workflows, verwalteten Hosts, Inventories, Playbooks und
+                  Worker-basierter Ausführung.
+                </p>
+                <p class="demo-project__evidence">
+                  Zeigt Modellierung von Infrastruktur-Workflows und Konzepte für Worker-basierte
+                  Ausführung.
+                </p>
+                <div class="guide-badges">
+                  <span class="badge">ASP.NET Core</span><span class="badge">EF Core</span
+                  ><span class="badge">PostgreSQL</span><span class="badge">Next.js</span
+                  ><span class="badge">Docker</span><span class="badge">OIDC</span>
+                </div>
+                <a
+                  class="text-link"
+                  href="https://github.com/Katharon/NodeControl"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="NodeControl auf GitHub öffnen, neuer Tab"
+                  >GitHub <span aria-hidden="true">↗</span></a
+                >
+              </div>
+            </article>
+            <button
+              class="button button--ghost"
+              id="toggle-preview"
+              type="button"
+              aria-pressed="false"
+            >
+              Fallback zeigen
+            </button>
+          </div>
+          <div class="guide-project-ledger">
+            <article>
+              <h3>NodeControl</h3>
+              <p>Plattform-Engineering · Infrastruktur-Workflows und Worker-Ausführung.</p>
+            </article>
+            <article>
+              <h3>WeatherMesh</h3>
+              <p>Studienprojekt · Verteilte Wetterstationen, ASP.NET-Core-APIs und Blazor.</p>
+            </article>
+            <article>
+              <h3>CodeForge</h3>
+              <p>Editor-Prototyp · WPF/C#, Schichtenarchitektur und Plugin-Contracts.</p>
+            </article>
+            <article>
+              <h3>ChatTool</h3>
+              <p>
+                Studienprojekt · Desktop-Messaging, Authentifizierung, Persistenz und
+                Verschlüsselungsgrundlagen.
+              </p>
+            </article>
+          </div>
+          <div class="guide-two-column guide-prose">
+            <div>
+              <h3>Screenshot & Fallback</h3>
+              <p>
+                Der vorhandene Vorschau-Resolver sucht nach dem Projektnamen unter
+                <code>public/images/</code>, bevorzugt WebP, dann AVIF, PNG, JPG und JPEG. Ohne
+                passende Datei erscheint eine ehrliche textbasierte Projektvorschau. Es werden keine
+                synthetischen Screenshots als fertiges Produkt ausgegeben.
+              </p>
+              <p>
+                Interfaces bleiben vollständig verständlich; kein Beschnitt, der wesentliche
+                Bedienbereiche verschluckt. Die Vorschau ist ein ausdrücklich benannter Link zum
+                zugehörigen GitHub-Repository.
+              </p>
+            </div>
+            <div>
+              <h3>Verhalten & Reihenfolge</h3>
+              <p>
+                Projektinformationen bilden einen <code>article</code>, die Überschrift ist
+                <code>h3</code>. Vorschau und sichtbarer GitHub-Link führen zum selben Repository;
+                die gesamte Zeile erhält keinen versteckten Click-Handler. Technologien sind eine
+                umbrechende Liste ohne Fertigkeits-Prozentwerte.
+              </p>
+              <p>
+                Auf Mobile werden Vorschau und Text untereinander angeordnet. Lange Namen und
+                Übersetzungen dürfen wachsen; kein festes Kartenhöhen-Raster.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="guide-section" id="content" aria-labelledby="content-title">
+          <div class="guide-section-head">
+            <p class="eyebrow">Nachvollziehbares Profil</p>
+            <h2 class="section-heading" id="content-title">Inhalt trägt die Persönlichkeit.</h2>
+            <p>
+              Über mich, Schwerpunkte, Berufserfahrung und Ausbildung gehören zum selben Profil. Die
+              visuelle Sprache bleibt ruhig; Unterschiede entstehen durch Hierarchie, Spalten und
+              Abstände.
+            </p>
+          </div>
+          <div class="guide-two-column">
+            <div class="guide-sample">
+              <div class="guide-sample-label">Über mich</div>
+              <p class="eyebrow">Praktisches Systemverständnis</p>
+              <h3>Vom operativen Alltag zur Softwareentwicklung.</h3>
+              <p>
+                Informatikabschluss an der FH Wiener Neustadt, praktische .NET-Erfahrung bei FOTEC
+                und ein aktueller Fokus auf Linux, Container und verteilte Systeme.
+              </p>
+              <p>
+                Der frühere Hintergrund in Küche und Küchenleitung bleibt als Erfahrung mit
+                Verantwortung, strukturierten Abläufen und Problemlösung sichtbar.
+              </p>
+            </div>
+            <div class="guide-sample">
+              <div class="guide-sample-label">Schwerpunkte · strukturierte Themen</div>
+              <ul class="demo-focus">
+                <li>
+                  <strong>C#/.NET Engineering</strong
+                  ><span>ASP.NET Core, Blazor, MAUI und EF Core.</span>
+                </li>
+                <li>
+                  <strong>Linux & Container</strong
+                  ><span>Praxisnahes Lernen und Infrastrukturgrundlagen.</span>
+                </li>
+                <li>
+                  <strong>Verteilte Systeme</strong
+                  ><span>Service-Grenzen, Recovery und Reproduzierbarkeit.</span>
+                </li>
+                <li>
+                  <strong>Softwarearchitektur</strong
+                  ><span>Wartbare Grenzen und pragmatische Struktur.</span>
+                </li>
+                <li>
+                  <strong>Security-Grundlagen</strong
+                  ><span>Studiennahe Arbeit mit ehrlicher Einordnung.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="guide-sample">
+            <div class="guide-sample-label">Erfahrung · chronologisch rückwärts</div>
+            <ol class="demo-timeline">
+              <li>
+                <p class="demo-timeline__date">10/2024 — 03/2025</p>
+                <div>
+                  <h3>Junior Developer <span>· FOTEC</span></h3>
+                  <p>
+                    Teilzeitentwicklung von Business-Anwendungen mit .NET MAUI, ASP.NET Core,
+                    Blazor, EF Core, REST APIs und Git.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <p class="demo-timeline__date">08/2024</p>
+                <div>
+                  <h3>Software Development Intern <span>· FOTEC</span></h3>
+                  <p>
+                    Python/Raspberry-Pi-Prototyp für Qualitätsprüfung und GoPro-API-Integration im
+                    Fließbandkontext.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <p class="demo-timeline__date">2014 — 2023</p>
+                <div>
+                  <h3>Operativer Gastronomie-Hintergrund</h3>
+                  <p>
+                    Küchenleitung, Koordination, Kalkulation und Verantwortung im laufenden Betrieb.
+                  </p>
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div class="guide-sample">
+            <div class="guide-sample-label">
+              Ausbildung · unveränderter Inhalt aus dem gelieferten Projekt
+            </div>
+            <div class="demo-education">
+              <article>
+                <p class="eyebrow">Start 09/2026</p>
+                <h3>M.Sc. Informatik</h3>
+                <p>Software and Security Engineering<br />FH Wiener Neustadt</p>
+                <span class="badge">Zugelassen</span>
+                <p class="guide-caption">
+                  Zugelassen, mit geplantem Fokus auf Software and Security Engineering.
+                </p>
+              </article>
+              <article>
+                <p class="eyebrow">Abgeschlossen 07/2026</p>
+                <h3>BSc. Informatik</h3>
+                <p>FH Wiener Neustadt<br />Mit gutem Erfolg abgeschlossen.</p>
+                <span class="badge">Abgeschlossen</span>
+              </article>
+            </div>
+          </div>
+          <div class="guide-prose">
+            <h3>Verbindliche Darstellung</h3>
+            <p>
+              Erfahrung benennt Rolle, Organisation, Zeitraum und konkrete Tätigkeit. Für dieses
+              Redesign bleiben die Inhalte des gelieferten Projekts unverändert. Das betrifft auch
+              den dort vorhandenen Master-Text „Start 09/2026 / zugelassen“; ein Designumbau
+              aktualisiert diese Angaben nicht eigenständig. Schwerpunkte und Stack behalten ihre
+              vorhandene Einordnung, ohne aus Grundlagen automatisch Expertenwissen zu machen.
+            </p>
+          </div>
+        </section>
+
+        <section class="guide-section" id="stack-contact" aria-labelledby="stack-contact-title">
+          <div class="guide-section-head">
+            <p class="eyebrow">Werkzeuge & Abschluss</p>
+            <h2 class="section-heading" id="stack-contact-title">
+              Eine klare Einladung zum Gespräch.
+            </h2>
+            <p>
+              Der Stack beantwortet fachliche Fragen. Kontakt und Footer geben der Seite einen
+              eindeutigen Abschluss und halten die vorhandenen Kontaktwege sichtbar.
+            </p>
+          </div>
+          <div class="guide-sample">
+            <div class="guide-sample-label">Tech Stack · Gruppen ohne Ratings</div>
+            <div class="demo-stack">
+              <article>
+                <h3>Backend</h3>
+                <p>C# · .NET · ASP.NET Core · EF Core · REST APIs · SQL</p>
+              </article>
+              <article>
+                <h3>Frontend & App</h3>
+                <p>Blazor · MAUI · WPF · HTML · CSS · JavaScript · TypeScript · React · Next.js</p>
+              </article>
+              <article>
+                <h3>Infrastruktur</h3>
+                <p>Linux · Docker · Kubernetes · Git · Ansible-Grundlagen</p>
+              </article>
+              <article>
+                <h3>Architektur</h3>
+                <p>Layered Architecture · MVVM · Clean-Architecture-Konzepte · Worker-Ausführung</p>
+              </article>
+            </div>
+          </div>
+          <div class="demo-contact">
+            <div>
+              <p class="eyebrow">Kontakt</p>
+              <h3>Gemeinsam<br />etwas bauen.</h3>
+              <p>
+                Offen für Junior-Software-Engineering-Möglichkeiten. Standort: Burgenland,
+                Österreich.
+              </p>
+              <a class="demo-contact__mail" href="mailto:lukas.stumpfel@live.de"
+                >lukas.stumpfel@live.de <span aria-hidden="true">↗</span></a
+              >
+            </div>
+            <nav aria-label="Kontaktwege im Beispiel">
+              <a href="https://github.com/Katharon" target="_blank" rel="noreferrer"
+                >GitHub <span aria-hidden="true">↗</span></a
+              ><a
+                href="https://www.linkedin.com/in/lukas-stumpfel/"
+                target="_blank"
+                rel="noreferrer"
+                >LinkedIn <span aria-hidden="true">↗</span></a
+              ><span>Bad Sauerbrunn, Österreich</span>
+            </nav>
+          </div>
+          <div class="demo-footer">
+            <p>© 2026 Lukas Stumpfel. Gebaut als statisches Portfolio.</p>
+            <div>
+              <a href="https://github.com/Katharon" target="_blank" rel="noreferrer">GitHub</a
+              ><a
+                href="https://www.linkedin.com/in/lukas-stumpfel/"
+                target="_blank"
+                rel="noreferrer"
+                >LinkedIn</a
+              >
+            </div>
+          </div>
+          <div class="guide-two-column guide-prose">
+            <div>
+              <h3>Kontaktfläche</h3>
+              <p>
+                <code>--color-contact-bg</code>, <code>--color-contact-text</code> und
+                <code>--color-contact-muted</code> bilden eine eigenständige kontrastreiche Fläche.
+                Ein Mail-Link führt direkt zur Adresse. GitHub und LinkedIn sind echte externe
+                Ziele. Der Standort ist Text und wird ohne Kartenfunktion nicht als Button
+                gestaltet.
+              </p>
+            </div>
+            <div>
+              <h3>Footer</h3>
+              <p>
+                Schmale Abschlusszeile mit Name, aktuellem Jahr, statischem Charakter und
+                vorhandenen Profil-Links. Mobile umbrechend, mit ausreichend Abstand zwischen den
+                Touch-Zielen. Kein zusätzlicher Verkaufsbereich und keine neue Formularfunktion.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="guide-section" id="contracts" aria-labelledby="contracts-title">
+          <div class="guide-section-head">
+            <p class="eyebrow">Vollständiger Komponentenvertrag</p>
+            <h2 class="section-heading" id="contracts-title">Jedes Element hat klare Regeln.</h2>
+            <p>
+              Die Referenz beschreibt Zweck, Anatomie, verwendete Variablen, Zustände,
+              Tastaturbedienung, responsive Verhalten und Textregeln für jeden tatsächlichen
+              Baustein. Aufklappen, prüfen und bei einer Änderung gemeinsam mit der Implementierung
+              aktualisieren.
+            </p>
+          </div>
+          <div class="guide-action-row guide-contract-controls">
+            <button class="button button--secondary" id="expand-contracts" type="button">
+              Alle Regeln öffnen</button
+            ><button class="button button--ghost" id="collapse-contracts" type="button">
+              Alle schließen
+            </button>
+          </div>
+          <div id="component-contracts" class="guide-contracts"></div>
+        </section>
+
+        <section class="guide-section" id="accessibility" aria-labelledby="accessibility-title">
+          <div class="guide-section-head">
+            <p class="eyebrow">Usability als Bestandteil</p>
+            <h2 class="section-heading" id="accessibility-title">Sichtbar. Lesbar. Erreichbar.</h2>
+            <p>
+              Die Seite funktioniert mit Tastatur, Touch und Pointer. Kontrast wird aus den
+              aktuellen Tokenwerten berechnet; nicht aus einem Screenshot geschätzt. Der
+              untenstehende Vergleich zeigt Text- und Fokusrollen in beiden Themes.
+            </p>
+          </div>
+          <div
+            class="guide-table-scroll"
+            tabindex="0"
+            role="region"
+            aria-label="Live berechnete Farbkontraste"
+          >
+            <table>
+              <caption>
+                Live-Kontrastwerte · Textziel mindestens 4.5:1, Fokusziel mindestens 3:1
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Kombination</th>
+                  <th scope="col">Dunkel</th>
+                  <th scope="col">Hell</th>
+                  <th scope="col">Ziel</th>
+                </tr>
+              </thead>
+              <tbody id="contrast-rows"></tbody>
+            </table>
+          </div>
+          <div class="guide-two-column guide-prose">
+            <div>
+              <h3>Tastatur & Fokus</h3>
+              <ul>
+                <li>Tab und Shift+Tab bewegen den Fokus in Dokumentreihenfolge.</li>
+                <li>Enter öffnet Links. Enter und Leertaste betätigen Buttons.</li>
+                <li>Native Auswahlfelder behalten ihre gewohnte Tastaturbedienung.</li>
+                <li>
+                  Fokus ist mindestens zwei Pixel stark, abgesetzt und im gewählten Theme sichtbar.
+                </li>
+                <li>
+                  Kein <code>tabindex</code> größer als null und keine klickbaren
+                  <code>div</code>-Ersatzbuttons.
+                </li>
+                <li>
+                  Wiederholte Icons werden verborgen; Icon-Buttons erhalten einen zugänglichen
+                  Namen.
+                </li>
+                <li>Ein Ankerziel darf nicht unter dem Sticky-Header verschwinden.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Bewegung & Struktur</h3>
+              <ul>
+                <li>
+                  <code>prefers-reduced-motion: reduce</code> schaltet dekorative Bewegung und
+                  sanftes Scrollen ab.
+                </li>
+                <li>
+                  Inhalte sind bereits ohne Animation sichtbar; kein dauerhaftes
+                  <code>opacity: 0</code> bei fehlendem JavaScript.
+                </li>
+                <li>
+                  Landmarks: <code>header</code>, beschriftete <code>nav</code>, <code>main</code>,
+                  <code>section</code>, <code>footer</code>.
+                </li>
+                <li>Farbe allein übermittelt weder Sprache, Auswahl noch Status.</li>
+                <li>
+                  Bei 200 % Zoom bleiben Aktionen und Texte zugänglich. Layouts dürfen höher werden.
+                </li>
+                <li>
+                  Hover-Effekte verschieben keine Inhalte und sind keine Voraussetzung für eine
+                  Information.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="guide-sample">
+            <div class="guide-sample-label">Fokus testen</div>
+            <div class="guide-action-row">
+              <a class="button button--primary" href="#writing"
+                >Nächstes Kapitel <span aria-hidden="true">→</span></a
+              ><button class="button button--secondary" id="focus-example" type="button">
+                Rückmeldung anzeigen</button
+              ><a class="text-link" href="#navigation"
+                >Zum Menübeispiel <span aria-hidden="true">→</span></a
+              >
+            </div>
+            <p class="guide-caption" id="focus-example-status" role="status">
+              Mit Tab die sichtbaren Fokuszustände prüfen.
+            </p>
+          </div>
+        </section>
+
+        <section class="guide-section" id="writing" aria-labelledby="writing-title">
+          <div class="guide-section-head">
+            <p class="eyebrow">Inhaltliche Konsistenz</p>
+            <h2 class="section-heading" id="writing-title">
+              Konkret schreiben. Gleiche Fakten behalten.
+            </h2>
+            <p>
+              Die Website richtet sich an Menschen, die fachlichen Schwerpunkt, Projektbezug und
+              Kontakt schnell verstehen wollen. Eine kurze, belegbare Beschreibung ist hilfreicher
+              als unbelegte Superlative.
+            </p>
+          </div>
+          <div class="guide-two-column guide-prose">
+            <div>
+              <h3>Schreiben</h3>
+              <ul>
+                <li>
+                  Aktive Verben und präzise Substantive; keine pauschalen Experten- oder
+                  Produktionsreife-Versprechen.
+                </li>
+                <li>
+                  Prototyp, Studienprojekt und Portfolio-Projekt bleiben als solche erkennbar.
+                </li>
+                <li>
+                  Call-to-Action benennt das Ziel: „Projekte ansehen“, „Repository ansehen“, „E-Mail
+                  an Lukas“.
+                </li>
+                <li>
+                  Projektname, Zeitraum und Technologieschreibweise sind in beiden Sprachen gleich.
+                </li>
+                <li>
+                  Security-Projekte beschreiben Lerninhalt, ohne eine umfassend geprüfte Sicherheit
+                  zu behaupten.
+                </li>
+                <li>
+                  Keine erfundenen Nutzerzahlen, Uptime-Angaben, Rankings, Kundenlogos oder
+                  Fertigkeitsbalken.
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3>Pflegeorte</h3>
+              <dl class="guide-definition">
+                <dt><code>data/profile.ts</code></dt>
+                <dd>Name, Standort, Rolle und echte Kontaktadressen.</dd>
+                <dt><code>data/content.ts</code></dt>
+                <dd>DE/EN-Texte, Navigation, Werdegang und Ausbildung.</dd>
+                <dt><code>data/projects.ts</code></dt>
+                <dd>Projektzweck, Einordnung, fachlicher Bezug, Technologien und Repository.</dd>
+                <dt><code>data/skills.ts</code></dt>
+                <dd>Zusammengehörige Technologie- und Konzeptgruppen.</dd>
+                <dt><code>data/i18n.ts</code></dt>
+                <dd>Sprachen, Bezeichnungen und Routen.</dd>
+              </dl>
+            </div>
+          </div>
+          <div class="guide-table-scroll" tabindex="0" role="region" aria-label="Konsistenzregeln">
+            <table>
+              <caption>
+                Bei jeder Änderung gemeinsam prüfen
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Information</th>
+                  <th scope="col">Regel</th>
+                  <th scope="col">Auch prüfen</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Ausbildung</th>
+                  <td>
+                    Die vorhandenen Angaben aus dem gelieferten Projekt bleiben im Redesign
+                    erhalten, inklusive „Start 09/2026 / zugelassen“.
+                  </td>
+                  <td>
+                    DE/EN-Ausbildung, Profil, verfügbare Lebenslauf-Datei und Metadaten. Inhaltliche
+                    Aktualisierung nur als eigene beauftragte Änderung.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Projekt</th>
+                  <td>
+                    Name und Repository stimmen überein; Vorschau zeigt das bezeichnete Projekt.
+                  </td>
+                  <td>
+                    Beide Beschreibungen, Alternativtexte, Technologieliste und Vorschau-Datei.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Kontakt</th>
+                  <td>Adresse und Profilziel sind in Hero, Kontakt und Footer identisch.</td>
+                  <td>Linkziel, sichtbarer Text und zugängliche Bezeichnung.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Theme</th>
+                  <td>Jede neue Fläche benutzt semantische Rollen.</td>
+                  <td>Dunkel, Hell, Bildwechsel, Kontrasttabelle und gemeinsame Tokenquelle.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Sprache</th>
+                  <td>Jede vorhandene Aussage hat ein passendes Gegenstück.</td>
+                  <td>ARIA-Bezeichnungen, Datumsform und Bildbeschreibung.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="guide-section" id="implementation" aria-labelledby="implementation-title">
+          <div class="guide-section-head">
+            <p class="eyebrow">Praktische Anwendung</p>
+            <h2 class="section-heading" id="implementation-title">Aus einer Quelle weiterbauen.</h2>
+            <p>
+              Die HTML-Referenz und das Next.js-Portfolio verwenden dieselben Token und Primitives
+              aus <code>public/design/</code>. Neue Elemente beginnen mit vorhandenen Rollen. Eine
+              Farbänderung wird einmal im System vorgenommen und nicht separat in jeder Komponente.
+            </p>
+          </div>
+          <div class="guide-two-column guide-prose">
+            <div>
+              <h3>Dateien & Verantwortung</h3>
+              <dl class="guide-definition">
+                <dt><code>design/tokens.json</code></dt>
+                <dd>Maschinenlesbare Palette, semantische Zuordnung und Maße.</dd>
+                <dt><code>design/tokens.css</code></dt>
+                <dd>Generierte CSS-Variablen mit konkreten Themes.</dd>
+                <dt><code>design/tokens.js</code></dt>
+                <dd>Dieselben Daten als klassisches Script für die Offline-Referenz.</dd>
+                <dt><code>design/primitives.css</code></dt>
+                <dd>Gemeinsame Buttons, Badges, Karten, Links und Überschriften.</dd>
+                <dt><code>styleguide/</code></dt>
+                <dd>Diese HTML-Datei plus lokale Dokumentations-CSS und -JavaScript.</dd>
+              </dl>
+            </div>
+            <div>
+              <h3>Offline & statische Ausgabe</h3>
+              <p>
+                Diese Referenz verwendet relative lokale Pfade. Sie benötigt weder Daten-Fetch noch
+                einen externen Font- oder Skriptdienst und kann als <code>file://</code>-Datei
+                geöffnet werden.
+              </p>
+              <p>
+                Das Portfolio wird als Next.js Static Export für GitHub Pages gebaut. Interaktionen
+                laufen im Browser; das Kontaktziel ist ein Mail-Link. Unveränderte Dateien aus
+                <code>public/</code> werden mit ausgeliefert.
+              </p>
+              <p>
+                Das Online-Portfolio nutzt seine regulären Sprachrouten. Die Standalone-Referenz ist
+                kein Ersatz für Routing-Tests auf einem statischen Webserver.
+              </p>
+            </div>
+          </div>
+          <details class="guide-details" open>
+            <summary>Vanilla HTML / CSS mit den gemeinsamen Rollen</summary>
+            <pre><code>&lt;link rel="stylesheet" href="../design/tokens.css"&gt;
+&lt;link rel="stylesheet" href="../design/primitives.css"&gt;
+
+&lt;a class="button button--primary" href="#projects"&gt;
+  Projekte ansehen &lt;span aria-hidden="true"&gt;→&lt;/span&gt;
+&lt;/a&gt;
+
+/* Nur die lokale Komposition ergänzen. */
+.project-row {
+  display: grid;
+  gap: var(--space-8);
+  padding-block: var(--space-12);
+  color: var(--color-text);
+  border-block-start: 1px solid var(--color-border);
+}
+.project-row h3 {
+  color: var(--color-heading);
+  font-size: var(--font-size-h3);
+}
+@media (min-width: 48rem) {
+  .project-row { grid-template-columns: 1fr 1fr; }
+}</code></pre>
+          </details>
+          <details class="guide-details">
+            <summary>Next.js: vorhandene Grundbausteine komponieren</summary>
+            <pre><code>import { Button } from "@/components/ui/Button";
+import { Badge } from "@/components/ui/Badge";
+
+export function ProjectActions() {
+  return (
+    &lt;div className="project-actions"&gt;
+      &lt;Badge&gt;ASP.NET Core&lt;/Badge&gt;
+      &lt;Button
+        href="https://github.com/Katharon/NodeControl"
+        variant="secondary"
+        external
+      &gt;
+        Repository ansehen
+      &lt;/Button&gt;
+    &lt;/div&gt;
+  );
+}
+
+/* Token/Primitives werden gemeinsam eingebunden.
+   Keine neuen Hexfarben in der JSX-Komponente. */
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}</code></pre>
+          </details>
+          <details class="guide-details">
+            <summary>Theme im Browser auflösen — ohne Serverabhängigkeit</summary>
+            <pre><code>function applyTheme(choice) {
+  const theme = choice === "light" ? "light" : "dark";
+  const root = document.documentElement;
+  root.dataset.themeChoice = theme;
+  root.dataset.theme = theme;
+  root.style.colorScheme = theme;
+}
+
+/* localStorage nur im Browser lesen und Schreibzugriffe abfangen.
+   CSS wählt das zum Theme gehörige dekorative Bild. */</code></pre>
+          </details>
+          <div class="guide-callout">
+            <strong>Änderungsablauf</strong>
+            <p>
+              Passende Token und Primitives auswählen → betroffenen Komponentenvertrag prüfen → DE
+              und EN aktualisieren → beide Themes und den Bildwechsel testen → schmale Ansicht,
+              Tastatur, Fokus und reduzierte Bewegung prüfen → statischen Build kontrollieren. Eine
+              neue Funktion wird nicht allein durch ein hübsches Beispiel in dieser Referenz Teil
+              des Portfolios.
+            </p>
+          </div>
+        </section>
+        <footer class="guide-document-footer">
+          <p>
+            Blackline · Lukas Stumpfel<br /><span
+              >Designsystem, UX-Referenz und wiederverwendbare Implementierungsregeln.</span
+            >
+          </p>
+          <a class="text-link" href="#overview">Zum Anfang <span aria-hidden="true">↑</span></a>
+        </footer>
+      </main>
+    </div>
+    <div
+      id="guide-toast"
+      class="guide-toast"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+  </body>
+</html>

@@ -1,0 +1,981 @@
+window.DESIGN_TOKENS = {
+  "$description": "Blackline portfolio design system. Single source for the Next.js website and HTML styleguide.",
+  "palette": {
+    "color": {
+      "ink": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.027450980392156862,
+            0.043137254901960784,
+            0.054901960784313725
+          ],
+          "hex": "#070b0e"
+        }
+      },
+      "surface": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.06666666666666667,
+            0.09411764705882353,
+            0.11764705882352941
+          ],
+          "hex": "#11181e"
+        }
+      },
+      "raised": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.09411764705882353,
+            0.12941176470588237,
+            0.15294117647058825
+          ],
+          "hex": "#182127"
+        }
+      },
+      "heading": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9490196078431372,
+            0.9607843137254902,
+            0.9686274509803922
+          ],
+          "hex": "#f2f5f7"
+        }
+      },
+      "text": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.7568627450980392,
+            0.788235294117647,
+            0.8156862745098039
+          ],
+          "hex": "#c1c9d0"
+        }
+      },
+      "muted": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6666666666666666,
+            0.7098039215686275,
+            0.7450980392156863
+          ],
+          "hex": "#aab5be"
+        }
+      },
+      "subtle": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.5647058823529412,
+            0.6274509803921569,
+            0.6745098039215687
+          ],
+          "hex": "#90a0ac"
+        }
+      },
+      "amber": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.6745098039215687,
+            0.3764705882352941
+          ],
+          "hex": "#ffac60"
+        }
+      },
+      "amberLight": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.7725490196078432,
+            0.5568627450980392
+          ],
+          "hex": "#ffc58e"
+        }
+      },
+      "border": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.17254901960784313,
+            0.2196078431372549,
+            0.25882352941176473
+          ],
+          "hex": "#2c3842"
+        }
+      },
+      "borderStrong": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.3803921568627451,
+            0.4470588235294118,
+            0.4980392156862745
+          ],
+          "hex": "#61727f"
+        }
+      },
+      "ice": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9058823529411765,
+            0.9215686274509803,
+            0.9333333333333333
+          ],
+          "hex": "#e7ebee"
+        }
+      },
+      "contactInk": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.06666666666666667,
+            0.09411764705882353,
+            0.11764705882352941
+          ],
+          "hex": "#11181e"
+        }
+      },
+      "contactMuted": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.27450980392156865,
+            0.32941176470588235,
+            0.37254901960784315
+          ],
+          "hex": "#46545f"
+        }
+      },
+      "contactBorder": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6078431372549019,
+            0.6549019607843137,
+            0.6901960784313725
+          ],
+          "hex": "#9ba7b0"
+        }
+      },
+      "copper": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.5490196078431373,
+            0.25882352941176473,
+            0.047058823529411764
+          ],
+          "hex": "#8c420c"
+        }
+      },
+      "paper": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9686274509803922,
+            0.9607843137254902,
+            0.9450980392156862
+          ],
+          "hex": "#f7f5f1"
+        }
+      },
+      "white": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "hex": "#ffffff"
+        }
+      },
+      "lightText": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.21176470588235294,
+            0.27450980392156865,
+            0.3137254901960784
+          ],
+          "hex": "#364650"
+        }
+      },
+      "lightMuted": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.2980392156862745,
+            0.3686274509803922,
+            0.4117647058823529
+          ],
+          "hex": "#4c5e69"
+        }
+      },
+      "lightSubtle": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.3215686274509804,
+            0.4,
+            0.4470588235294118
+          ],
+          "hex": "#526672"
+        }
+      },
+      "lightBorder": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.788235294117647,
+            0.8235294117647058,
+            0.8470588235294118
+          ],
+          "hex": "#c9d2d8"
+        }
+      },
+      "lightBorderStrong": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.4392156862745098,
+            0.5137254901960784,
+            0.5607843137254902
+          ],
+          "hex": "#70838f"
+        }
+      },
+      "lightRaised": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9333333333333333,
+            0.9215686274509803,
+            0.8980392156862745
+          ],
+          "hex": "#eeebe5"
+        }
+      },
+      "lightAccent": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.5686274509803921,
+            0.27450980392156865,
+            0.03137254901960784
+          ],
+          "hex": "#914608"
+        }
+      },
+      "lightAccentHover": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.42745098039215684,
+            0.18823529411764706,
+            0
+          ],
+          "hex": "#6d3000"
+        }
+      },
+      "shadow": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 0.18,
+          "hex": "#000000"
+        }
+      }
+    }
+  },
+  "color": {
+    "bg": {
+      "$type": "color",
+      "$value": "{palette.color.ink}",
+      "$description": "Page background"
+    },
+    "surface": {
+      "$type": "color",
+      "$value": "{palette.color.surface}",
+      "$description": "Quiet section/panel surface"
+    },
+    "surfaceRaised": {
+      "$type": "color",
+      "$value": "{palette.color.raised}",
+      "$description": "Raised panel and hover surface"
+    },
+    "text": {
+      "$type": "color",
+      "$value": "{palette.color.text}",
+      "$description": "Readable body text"
+    },
+    "heading": {
+      "$type": "color",
+      "$value": "{palette.color.heading}",
+      "$description": "Headings and primary labels"
+    },
+    "muted": {
+      "$type": "color",
+      "$value": "{palette.color.muted}",
+      "$description": "Secondary prose"
+    },
+    "subtle": {
+      "$type": "color",
+      "$value": "{palette.color.subtle}",
+      "$description": "Metadata and captions"
+    },
+    "accent": {
+      "$type": "color",
+      "$value": "{palette.color.amber}",
+      "$description": "Action links, active states and restrained accents"
+    },
+    "accentHover": {
+      "$type": "color",
+      "$value": "{palette.color.amberLight}",
+      "$description": "Hovered action text"
+    },
+    "border": {
+      "$type": "color",
+      "$value": "{palette.color.border}",
+      "$description": "Decorative separators; not a control outline"
+    },
+    "borderStrong": {
+      "$type": "color",
+      "$value": "{palette.color.borderStrong}",
+      "$description": "Control boundaries"
+    },
+    "contactBg": {
+      "$type": "color",
+      "$value": "{palette.color.ice}"
+    },
+    "contactText": {
+      "$type": "color",
+      "$value": "{palette.color.contactInk}"
+    },
+    "contactMuted": {
+      "$type": "color",
+      "$value": "{palette.color.contactMuted}"
+    },
+    "contactBorder": {
+      "$type": "color",
+      "$value": "{palette.color.contactBorder}"
+    },
+    "contactAccent": {
+      "$type": "color",
+      "$value": "{palette.color.copper}"
+    },
+    "focus": {
+      "$type": "color",
+      "$value": "{palette.color.amberLight}",
+      "$description": "Visible keyboard focus"
+    },
+    "actionText": {
+      "$type": "color",
+      "$value": "{palette.color.ink}",
+      "$description": "Dark text on a filled amber button"
+    },
+    "heroBase": {
+      "$type": "color",
+      "$value": "{palette.color.ink}",
+      "$description": "Theme-specific image-backed hero foundation"
+    },
+    "heroHeading": {
+      "$type": "color",
+      "$value": "{palette.color.heading}"
+    },
+    "heroText": {
+      "$type": "color",
+      "$value": "{palette.color.text}"
+    },
+    "heroAccent": {
+      "$type": "color",
+      "$value": "{palette.color.amber}"
+    },
+    "heroFocus": {
+      "$type": "color",
+      "$value": "{palette.color.amberLight}"
+    },
+    "heroBorder": {
+      "$type": "color",
+      "$value": "{palette.color.border}"
+    },
+    "heroControlBorder": {
+      "$type": "color",
+      "$value": "{palette.color.borderStrong}"
+    },
+    "heroRaised": {
+      "$type": "color",
+      "$value": "{palette.color.raised}"
+    },
+    "heroOverlayStrong": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.027450980392156862,
+          0.043137254901960784,
+          0.054901960784313725
+        ],
+        "alpha": 0.95,
+        "hex": "#070b0e"
+      }
+    },
+    "heroOverlayMedium": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.027450980392156862,
+          0.043137254901960784,
+          0.054901960784313725
+        ],
+        "alpha": 0.62,
+        "hex": "#070b0e"
+      }
+    },
+    "heroOverlaySoft": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.027450980392156862,
+          0.043137254901960784,
+          0.054901960784313725
+        ],
+        "alpha": 0.08,
+        "hex": "#070b0e"
+      }
+    },
+    "heroOverlayMobile": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.027450980392156862,
+          0.043137254901960784,
+          0.054901960784313725
+        ],
+        "alpha": 0.72,
+        "hex": "#070b0e"
+      }
+    }
+  },
+  "font": {
+    "family": {
+      "sans": {
+        "$type": "fontFamily",
+        "$value": [
+          "Geist",
+          "Arial",
+          "sans-serif"
+        ]
+      },
+      "mono": {
+        "$type": "fontFamily",
+        "$value": [
+          "Geist Mono",
+          "Consolas",
+          "monospace"
+        ]
+      }
+    },
+    "size": {
+      "caption": {
+        "$type": "dimension",
+        "$value": {
+          "value": 0.75,
+          "unit": "rem"
+        }
+      },
+      "small": {
+        "$type": "dimension",
+        "$value": {
+          "value": 0.875,
+          "unit": "rem"
+        }
+      },
+      "body": {
+        "$type": "dimension",
+        "$value": {
+          "value": 1,
+          "unit": "rem"
+        }
+      },
+      "lead": {
+        "$type": "dimension",
+        "$value": {
+          "value": 1.125,
+          "unit": "rem"
+        }
+      },
+      "h3": {
+        "$type": "dimension",
+        "$value": {
+          "value": 1.5,
+          "unit": "rem"
+        }
+      },
+      "h2": {
+        "$type": "dimension",
+        "$value": {
+          "value": 2.625,
+          "unit": "rem"
+        }
+      },
+      "h1": {
+        "$type": "dimension",
+        "$value": {
+          "value": 5.5,
+          "unit": "rem"
+        }
+      },
+      "h1Min": {
+        "$type": "dimension",
+        "$value": {
+          "value": 3,
+          "unit": "rem"
+        }
+      },
+      "h2Min": {
+        "$type": "dimension",
+        "$value": {
+          "value": 1.75,
+          "unit": "rem"
+        }
+      }
+    },
+    "weight": {
+      "regular": {
+        "$type": "fontWeight",
+        "$value": 400
+      },
+      "medium": {
+        "$type": "fontWeight",
+        "$value": 500
+      },
+      "semibold": {
+        "$type": "fontWeight",
+        "$value": 600
+      },
+      "bold": {
+        "$type": "fontWeight",
+        "$value": 700
+      }
+    }
+  },
+  "line": {
+    "height": {
+      "body": {
+        "$type": "number",
+        "$value": 1.7
+      },
+      "heading": {
+        "$type": "number",
+        "$value": 1.12
+      },
+      "label": {
+        "$type": "number",
+        "$value": 1.4
+      }
+    }
+  },
+  "space": {
+    "1": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.25,
+        "unit": "rem"
+      }
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.5,
+        "unit": "rem"
+      }
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.75,
+        "unit": "rem"
+      }
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1,
+        "unit": "rem"
+      }
+    },
+    "5": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.25,
+        "unit": "rem"
+      }
+    },
+    "6": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.5,
+        "unit": "rem"
+      }
+    },
+    "8": {
+      "$type": "dimension",
+      "$value": {
+        "value": 2,
+        "unit": "rem"
+      }
+    },
+    "10": {
+      "$type": "dimension",
+      "$value": {
+        "value": 2.5,
+        "unit": "rem"
+      }
+    },
+    "12": {
+      "$type": "dimension",
+      "$value": {
+        "value": 3,
+        "unit": "rem"
+      }
+    },
+    "16": {
+      "$type": "dimension",
+      "$value": {
+        "value": 4,
+        "unit": "rem"
+      }
+    },
+    "20": {
+      "$type": "dimension",
+      "$value": {
+        "value": 5,
+        "unit": "rem"
+      }
+    },
+    "24": {
+      "$type": "dimension",
+      "$value": {
+        "value": 6,
+        "unit": "rem"
+      }
+    }
+  },
+  "radius": {
+    "small": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.25,
+        "unit": "rem"
+      }
+    },
+    "medium": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.5,
+        "unit": "rem"
+      }
+    },
+    "large": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.75,
+        "unit": "rem"
+      }
+    }
+  },
+  "size": {
+    "touch": {
+      "$type": "dimension",
+      "$value": {
+        "value": 2.75,
+        "unit": "rem"
+      }
+    },
+    "icon": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.125,
+        "unit": "rem"
+      }
+    },
+    "contentMax": {
+      "$type": "dimension",
+      "$value": {
+        "value": 76,
+        "unit": "rem"
+      }
+    },
+    "prose": {
+      "$type": "dimension",
+      "$value": {
+        "value": 42,
+        "unit": "rem"
+      }
+    },
+    "header": {
+      "$type": "dimension",
+      "$value": {
+        "value": 4.75,
+        "unit": "rem"
+      }
+    },
+    "border": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1,
+        "unit": "px"
+      }
+    },
+    "focus": {
+      "$type": "dimension",
+      "$value": {
+        "value": 2,
+        "unit": "px"
+      }
+    }
+  },
+  "motion": {
+    "fast": {
+      "$type": "duration",
+      "$value": {
+        "value": 150,
+        "unit": "ms"
+      }
+    },
+    "normal": {
+      "$type": "duration",
+      "$value": {
+        "value": 240,
+        "unit": "ms"
+      }
+    }
+  },
+  "breakpoint": {
+    "compact": {
+      "$type": "dimension",
+      "$value": {
+        "value": 40,
+        "unit": "rem"
+      }
+    },
+    "wide": {
+      "$type": "dimension",
+      "$value": {
+        "value": 64,
+        "unit": "rem"
+      }
+    }
+  },
+  "shadow": {
+    "card": {
+      "$type": "shadow",
+      "$value": {
+        "color": "{palette.color.shadow}",
+        "offsetX": {
+          "value": 0,
+          "unit": "rem"
+        },
+        "offsetY": {
+          "value": 1,
+          "unit": "rem"
+        },
+        "blur": {
+          "value": 2.5,
+          "unit": "rem"
+        },
+        "spread": {
+          "value": -0.75,
+          "unit": "rem"
+        }
+      }
+    }
+  },
+  "themes": {
+    "light": {
+      "color": {
+        "bg": {
+          "$type": "color",
+          "$value": "{palette.color.paper}"
+        },
+        "surface": {
+          "$type": "color",
+          "$value": "{palette.color.white}"
+        },
+        "surfaceRaised": {
+          "$type": "color",
+          "$value": "{palette.color.lightRaised}"
+        },
+        "text": {
+          "$type": "color",
+          "$value": "{palette.color.lightText}"
+        },
+        "heading": {
+          "$type": "color",
+          "$value": "{palette.color.ink}"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "{palette.color.lightMuted}"
+        },
+        "subtle": {
+          "$type": "color",
+          "$value": "{palette.color.lightSubtle}"
+        },
+        "accent": {
+          "$type": "color",
+          "$value": "{palette.color.lightAccent}"
+        },
+        "accentHover": {
+          "$type": "color",
+          "$value": "{palette.color.lightAccentHover}"
+        },
+        "focus": {
+          "$type": "color",
+          "$value": "{palette.color.lightAccent}"
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{palette.color.lightBorder}"
+        },
+        "borderStrong": {
+          "$type": "color",
+          "$value": "{palette.color.lightBorderStrong}"
+        },
+        "actionText": {
+          "$type": "color",
+          "$value": "{palette.color.white}"
+        },
+        "heroBase": {
+          "$type": "color",
+          "$value": "{palette.color.paper}"
+        },
+        "heroHeading": {
+          "$type": "color",
+          "$value": "{palette.color.ink}"
+        },
+        "heroText": {
+          "$type": "color",
+          "$value": "{palette.color.lightText}"
+        },
+        "heroAccent": {
+          "$type": "color",
+          "$value": "{palette.color.lightAccent}"
+        },
+        "heroFocus": {
+          "$type": "color",
+          "$value": "{palette.color.lightAccent}"
+        },
+        "heroBorder": {
+          "$type": "color",
+          "$value": "{palette.color.lightBorder}"
+        },
+        "heroControlBorder": {
+          "$type": "color",
+          "$value": "{palette.color.lightBorderStrong}"
+        },
+        "heroRaised": {
+          "$type": "color",
+          "$value": "{palette.color.lightRaised}"
+        },
+        "heroOverlayStrong": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.9686274509803922,
+              0.9607843137254902,
+              0.9450980392156862
+            ],
+            "hex": "#f7f5f1",
+            "alpha": 0.98
+          }
+        },
+        "heroOverlayMedium": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.9686274509803922,
+              0.9607843137254902,
+              0.9450980392156862
+            ],
+            "hex": "#f7f5f1",
+            "alpha": 0.94
+          }
+        },
+        "heroOverlaySoft": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.9686274509803922,
+              0.9607843137254902,
+              0.9450980392156862
+            ],
+            "hex": "#f7f5f1",
+            "alpha": 0.04
+          }
+        },
+        "heroOverlayMobile": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.9686274509803922,
+              0.9607843137254902,
+              0.9450980392156862
+            ],
+            "hex": "#f7f5f1",
+            "alpha": 0.94
+          }
+        }
+      }
+    }
+  }
+};

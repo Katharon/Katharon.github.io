@@ -21,8 +21,8 @@ export default function Image() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        background: "#020617",
-        color: "#f8fafc",
+        background: "#070b0e",
+        color: "#f2f5f7",
         padding: "72px",
         fontFamily: "Arial, sans-serif",
         position: "relative",
@@ -33,7 +33,7 @@ export default function Image() {
           position: "absolute",
           inset: 0,
           background:
-            "radial-gradient(circle at 18% 18%, rgba(56, 189, 248, 0.22), transparent 320px), radial-gradient(circle at 88% 10%, rgba(37, 99, 235, 0.16), transparent 300px)",
+            "radial-gradient(circle at 18% 18%, rgba(255, 172, 96, 0.12), transparent 320px), radial-gradient(circle at 88% 10%, rgba(144, 160, 172, 0.08), transparent 300px)",
         }}
       />
       <div
@@ -42,7 +42,7 @@ export default function Image() {
           alignItems: "center",
           justifyContent: "space-between",
           gap: "20px",
-          color: "#7dd3fc",
+          color: "#ffac60",
           fontSize: 28,
           fontWeight: 700,
           position: "relative",
@@ -56,16 +56,16 @@ export default function Image() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              border: "1px solid rgba(125, 211, 252, 0.45)",
+              border: "1px solid rgba(255, 172, 96, 0.45)",
               borderRadius: 14,
-              background: "rgba(14, 165, 233, 0.12)",
+              background: "rgba(255, 172, 96, 0.08)",
             }}
           >
             LS
           </div>
           Lukas Stumpfel
         </div>
-        <div style={{ color: "#cbd5e1", fontSize: 22, fontWeight: 500 }}>katharon.github.io</div>
+        <div style={{ color: "#c1c9d0", fontSize: 22, fontWeight: 500 }}>katharon.github.io</div>
       </div>
       <div
         style={{
@@ -88,7 +88,7 @@ export default function Image() {
         <div
           style={{
             maxWidth: 880,
-            color: "#cbd5e1",
+            color: "#c1c9d0",
             fontSize: 34,
             lineHeight: 1.35,
           }}
@@ -101,7 +101,7 @@ export default function Image() {
         style={{
           display: "flex",
           gap: "16px",
-          color: "#bae6fd",
+          color: "#ffc58e",
           fontSize: 24,
           position: "relative",
         }}
