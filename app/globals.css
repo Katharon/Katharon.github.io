@@ -320,7 +320,8 @@
 }
 .profile-grid ul {
   margin: 0;
-  padding-left: 0;
+  list-style-type: disc;
+  padding-inline-start: var(--space-5);
   font-size: var(--font-size-small);
   line-height: var(--line-height-body);
 }
