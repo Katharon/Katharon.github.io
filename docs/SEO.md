@@ -115,10 +115,28 @@ noch Google-Indexierung, Ranking, Bildauswahl oder tatsächliche HTTP-Header des
 
 ## Search Console und Prüfung nach Veröffentlichung
 
-**Google-Status: durch diese lokale Umsetzung noch nicht geprüft.**
-Die folgenden Punkte sind eine Arbeitsanleitung; sie werden erst nach einer tatsächlich
-durchgeführten Prüfung als erledigt dokumentiert. Es werden keine erfundenen Messwerte
-oder Bestätigungen hinterlegt.
+**Prüfstand: 26. Oktober 2026, nach erfolgreicher Veröffentlichung.**
+
+- Alle vier neuen PNG-Adressen liefern öffentlich HTTP 200 und `image/png`;
+  ihre Bytes entsprechen den bisherigen Grafiken. Beide Sprachseiten enthalten die neuen
+  Metadaten und JSON-LD-Daten. Die sichtbaren Texte wurden mit dem vorherigen Live-Stand verglichen.
+- Google Rich Results Test: je eine gültige Profilseite für `/` und `/de/`.
+  Schema Markup Validator: 0 Fehler und 0 Warnungen für den veröffentlichten Graphen.
+- Search Console: `/` ist indexiert, `/de/` war bei der Prüfung noch nicht bekannt.
+  Die Indexierung wurde nach Veröffentlichung für beide URLs beantragt und von Google bestätigt.
+  Beide Live-Tests bestätigten Erreichbarkeit und Indexierbarkeit.
+- `sitemap.xml` wurde erneut eingereicht. **Offen:** Google meldet weiterhin
+  „Konnte nicht abgerufen werden“ und 0 erkannte Seiten. Der direkte Abruf liefert gültiges XML
+  mit HTTP 200. Erfolgreiche Verarbeitung wird damit ausdrücklich noch nicht behauptet.
+- Keine manuellen Maßnahmen oder Sicherheitsprobleme gemeldet.
+  Für Core Web Vitals liegen auf beiden Gerätetypen nicht genügend Nutzungsdaten vor.
+- Kostenloser PageSpeed-Labortest des vorherigen Live-Stands: Mobil 96 Leistung,
+  Desktop 100 Leistung; Barrierefreiheit, Best Practices und SEO jeweils 100.
+  [Messbericht vom 26.10.2026, 19:36 MEZ](https://pagespeed.web.dev/analysis/https-katharon-github-io/b0x1ibc9mc?form_factor=mobile).
+  Dies sind automatische Laborprüfungen, keine vollständige Barrierefreiheitsprüfung oder Ranking-Zusage.
+
+Diese Angaben beschreiben den überprüften Stand an diesem Datum. Die folgenden Punkte
+dienen als Anleitung für spätere Änderungen und die noch ausstehende Google-Verarbeitung.
 
 1. Die URL-Präfix-Property `https://katharon.github.io/` verwenden. Eine Domain-Property
    verlangt DNS-Zugriff, der für eine gewöhnliche `github.io`-Subdomain nicht zur Verfügung steht.
