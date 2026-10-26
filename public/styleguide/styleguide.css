@@ -1021,10 +1021,6 @@ td code {
   line-height: 1.7;
   margin: 0;
 }
-.demo-profile-panel ul {
-  padding-left: var(--space-4);
-  margin: 0;
-}
 .demo-profile-panel code {
   display: block;
   margin-bottom: var(--space-4);

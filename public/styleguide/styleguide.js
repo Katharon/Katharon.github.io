@@ -614,7 +614,7 @@
       purpose:
         "Die vorhandenen fachlichen Zusatzinformationen aus dem Hero übersichtlich bewahren.",
       anatomy:
-        "Eigenständiges Panel unter dem Bild-Hero: Profil-Dateibezeichnung und .NET/Linux/K8s, Liste des aktuellen Fokus und kurzer Absatz zur Bachelorarbeit.",
+        "Eigenständiges Panel unter dem Bild-Hero: Profil-Dateibezeichnung und .NET/Linux/K8s, Liste des aktuellen Fokus und kurzer Absatz zur Bachelorarbeit. Die Fokusliste und die Über-mich-Highlights teilen .accent-list: 4px-Quadrate in --color-accent, 12px Textabstand und role=list für zugängliche Listensemantik.",
       tokens: [
         "--color-surface",
         "--color-border",

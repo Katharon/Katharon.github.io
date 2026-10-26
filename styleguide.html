@@ -305,6 +305,25 @@ h3 {
   white-space: nowrap;
   border: 0;
 }
+.accent-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.accent-list > li {
+  display: flex;
+  gap: var(--space-3);
+  align-items: baseline;
+}
+.accent-list > li::before {
+  content: "";
+  width: var(--space-1);
+  height: var(--space-1);
+  flex: 0 0 var(--space-1);
+  position: relative;
+  top: -0.2em;
+  background: var(--color-accent);
+}
 .container {
   width: min(calc(100% - var(--space-10)), var(--size-content-max));
   margin-inline: auto;
@@ -1479,10 +1498,6 @@ td code {
 .demo-profile-panel li {
   font-size: var(--font-size-caption);
   line-height: 1.7;
-  margin: 0;
-}
-.demo-profile-panel ul {
-  padding-left: var(--space-4);
   margin: 0;
 }
 .demo-profile-panel code {
@@ -2978,7 +2993,7 @@ td code {
               </div>
               <div>
                 <h3>Aktueller Fokus</h3>
-                <ul>
+                <ul class="accent-list" role="list">
                   <li>C#/.NET-Anwendungsentwicklung</li>
                   <li>Grundlagen in Linux, Docker und Kubernetes</li>
                   <li>Verteilte Systeme und Architekturdenken</li>
@@ -5342,7 +5357,7 @@ window.DESIGN_TOKENS = {
       purpose:
         "Die vorhandenen fachlichen Zusatzinformationen aus dem Hero übersichtlich bewahren.",
       anatomy:
-        "Eigenständiges Panel unter dem Bild-Hero: Profil-Dateibezeichnung und .NET/Linux/K8s, Liste des aktuellen Fokus und kurzer Absatz zur Bachelorarbeit.",
+        "Eigenständiges Panel unter dem Bild-Hero: Profil-Dateibezeichnung und .NET/Linux/K8s, Liste des aktuellen Fokus und kurzer Absatz zur Bachelorarbeit. Die Fokusliste und die Über-mich-Highlights teilen .accent-list: 4px-Quadrate in --color-accent, 12px Textabstand und role=list für zugängliche Listensemantik.",
       tokens: [
         "--color-surface",
         "--color-border",

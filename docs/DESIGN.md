@@ -110,6 +110,8 @@ Ein Navigationsziel ist ein Link; eine lokale Aktion ist ein Button. Die primär
 
 Vorschau und sichtbarer GitHub-Link eines Projekts führen ausdrücklich zum selben Repository. Die gesamte Projektzeile erhält keinen versteckten Click-Handler. Vorhandene echte Screenshots werden lokal geladen; der Resolver bevorzugt WebP, AVIF, PNG, JPG und JPEG. Ohne passenden Asset zeigt die Seite einen textbasierten, klar als Vorschau erkennbaren Fallback statt einer erfundenen fertigen Oberfläche.
 
+Fokusliste und Über-mich-Highlights verwenden die gemeinsame Primitive `.accent-list`: 4px große Quadrate (`--space-1`) in `--color-accent` mit 12px Abstand (`--space-3`) zum Text. Mehrzeiliger Text richtet sich am Textanfang aus. Der Container bleibt eine semantische Liste mit `role="list"`; die Quadrate sind dekorativ.
+
 Das Profilpanel unter dem Hero bewahrt die Dateibezeichnung, .NET/Linux/K8s, die drei vorhandenen Fokuszeilen und den Bachelorarbeits-Text. Der Dateiname ist ein Gestaltungslabel und kein vorgetäuschter Download.
 
 ## Zugänglichkeit und Zustände

@@ -4,7 +4,7 @@ import { siteUrl } from "@/lib/metadata";
 
 export const dynamic = "force-static";
 
-const lastModified = "2026-07-23";
+const lastModified = "2026-10-26";
 
 const localizedUrls = {
   en: new URL(localeRoutes.en, siteUrl).toString(),

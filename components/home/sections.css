@@ -24,28 +24,13 @@
   display: grid;
   gap: var(--space-4);
   margin: var(--space-8) 0 0;
-  padding: 0;
-  list-style: none;
 }
 
 .about-highlights li {
-  display: flex;
-  gap: var(--space-3);
-  align-items: baseline;
   color: var(--color-text);
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-body);
-}
-
-.about-highlights li::before {
-  content: "";
-  width: var(--space-1);
-  height: var(--space-1);
-  flex: 0 0 var(--space-1);
-  position: relative;
-  top: -0.2em;
-  background: var(--color-accent);
 }
 
 .about-prose {

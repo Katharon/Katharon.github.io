@@ -94,7 +94,7 @@ export function HeroSection({ locale, cvHref }: { locale: Locale; cvHref: string
           </div>
           <div>
             <h2>{hero.currentFocusTitle}</h2>
-            <ul>
+            <ul className="accent-list" role="list">
               {hero.signalItems.map((item) => (
                 <li key={item}>{item}</li>
               ))}

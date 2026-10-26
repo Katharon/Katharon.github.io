@@ -21,7 +21,7 @@ export function AboutSection({ locale }: AboutSectionProps) {
         <div className="about-layout">
           <div className="about-overview">
             <SectionHeading eyebrow={about.eyebrow} title={about.title} titleId="about-title" />
-            <ul className="about-highlights">
+            <ul className="about-highlights accent-list" role="list">
               {about.highlights.map((highlight) => (
                 <li key={highlight}>{highlight}</li>
               ))}
